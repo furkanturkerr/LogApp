@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="Register.aspx.vb">
       <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

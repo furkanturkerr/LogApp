@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Runtime.Remoting.Contexts
 Imports System.Security.Cryptography
+Imports System.Text
 
 Public Class Register
     Inherits System.Web.UI.Page
@@ -10,67 +10,73 @@ Public Class Register
     End Sub
 
     Protected Sub kayıt_btn_Click(sender As Object, e As EventArgs) Handles kayıt_btn.Click
+        If tc_tb.Text <> "" And ad_tb.Text <> "" And soyad_tb.Text <> "" And adres_tb.Text <> "" And
+            (RadioButtonList1.SelectedValue = "yuk_veren" Or RadioButtonList1.SelectedValue = "yuk_arayan") Then
 
-        Dim baglantı As New SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True")
-
-
-        Dim tc, ad, soyad, plaka, adres, sifre, durum As String
-
-        'Dim sql As String = "insert into uyeler tc,ad,soyad,adres,sifre,durum,plaka values
-        '('" & tc & "' '" & ad & "' '" & soyad & "' '" & adres & "' '" & sifre & "' '" & durum & "' '" & plaka & "')"
-
-
-        If (tc_tb.Text <> "" And ad_tb.Text <> "" And soyad_tb.Text <> "" And adres_tb.Text <> "" And
-            (RadioButtonList1.SelectedValue = "yuk_veren" Or RadioButtonList1.SelectedValue = "yuk_arayan")) Then
-
-            tc = tc_tb.Text
-            ad = ad_tb.Text
-            soyad = soyad_tb.Text
-            sifre = sifre_tb.Text
-            plaka = plaka_tb.Text
-            adres = adres_tb.Text
-
-            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum, plaka) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum, @plaka)"
-            Dim sql2 As String = "select tc from uyeler where tc = '" & tc & "'"
-
+            Dim tc As String = tc_tb.Text
+            Dim ad As String = ad_tb.Text
+            Dim soyad As String = soyad_tb.Text
+            Dim sifre As String = sifre_tb.Text
+            Dim plaka As String = plaka_tb.Text
+            Dim adres As String = adres_tb.Text
+            Dim durum As String
             If (RadioButtonList1.SelectedValue = "yuk_veren") Then
                 durum = "yuk_veren"
             ElseIf (RadioButtonList1.SelectedValue = "yuk_arayan") Then
                 durum = "yuk_arayan"
             End If
 
+            ' Şifreyi MD5 ile şifrele
             Dim enc As Encoding = Encoding.GetEncoding("iso-8859-9")
             Dim kaynakbyte() As Byte = enc.GetBytes(sifre)
             Dim md5 As New MD5CryptoServiceProvider
-            Dim ByteHach() As Byte
-            ByteHach = md5.ComputeHash(kaynakbyte)
+            Dim ByteHach() As Byte = md5.ComputeHash(kaynakbyte)
             Dim sifremd5 As New StringBuilder
-            Dim sonucbyte As Byte
-            For Each sonucbyte In ByteHach
+            For Each sonucbyte As Byte In ByteHach
                 sifremd5.Append(sonucbyte.ToString("x2").ToUpper)
             Next
-            Dim guvenliSifre As String
-            guvenliSifre = sifremd5.ToString
+            Dim guvenliSifre As String = sifremd5.ToString()
 
-            Dim komut_kontrol As New SqlCommand(sql2, baglantı)
-            Dim veriokuyucu As SqlDataReader
-            baglantı.Open()
-            veriokuyucu = komut_kontrol.ExecuteReader
-            If veriokuyucu.HasRows Then
-                MsgBox("Kullanıcı zaten kayıtlı", MsgBoxStyle.Critical, "uyarı")
-                baglantı.Close()
-            Else
-                baglantı.Close()
+            ' SQL bağlantısı
+            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum, plaka) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum, @plaka)"
+            Dim sql2 As String = "SELECT tc FROM uyeler WHERE tc = @tc"
+
+            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True")
                 baglantı.Open()
-                Dim komut As New SqlCommand(sql, baglantı)
-                komut.ExecuteNonQuery()
-                baglantı.Close()
-                MsgBox("kayıt tamamlandı", MsgBoxStyle.OkOnly, "kayıt")
-            End If
+
+                ' Kullanıcının kayıtlı olup olmadığını kontrol et
+                Using komut_kontrol As New SqlCommand(sql2, baglantı)
+                    komut_kontrol.Parameters.AddWithValue("@tc", tc)
+                    Using veriokuyucu As SqlDataReader = komut_kontrol.ExecuteReader()
+                        If veriokuyucu.HasRows Then
+                            MsgBox("Kullanıcı zaten kayıtlı", MsgBoxStyle.Critical, "Uyarı")
+                            Exit Sub
+                        End If
+                    End Using
+                End Using
+
+                ' Yeni kayıt ekleme
+                Using komut As New SqlCommand(sql, baglantı)
+                    komut.Parameters.AddWithValue("@tc", tc)
+                    komut.Parameters.AddWithValue("@ad", ad)
+                    komut.Parameters.AddWithValue("@soyad", soyad)
+                    komut.Parameters.AddWithValue("@adres", adres)
+                    komut.Parameters.AddWithValue("@sifre", guvenliSifre)
+                    komut.Parameters.AddWithValue("@durum", durum)
+
+                    ' Plaka boşsa NULL olarak ekle
+                    If String.IsNullOrEmpty(plaka) Then
+                        komut.Parameters.AddWithValue("@plaka", DBNull.Value)
+                    Else
+                        komut.Parameters.AddWithValue("@plaka", plaka)
+                    End If
+
+                    komut.ExecuteNonQuery()
+                    MsgBox("Kayıt tamamlandı", MsgBoxStyle.OkOnly, "Kayıt")
+                End Using
+            End Using
         Else
-                MsgBox("noo!!!")
+            MsgBox("Lütfen tüm alanları eksiksiz doldurun!", MsgBoxStyle.Critical, "Hata")
         End If
-
-
     End Sub
 End Class

@@ -32,6 +32,15 @@ Partial Public Class Register
     Protected WithEvents tc_tb As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''RadioButtonList1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+
+    '''<summary>
     '''ad_tb control.
     '''</summary>
     '''<remarks>

@@ -93,4 +93,13 @@ Partial Public Class Register
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents kayıt_btn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''anamenu_btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents anamenu_btn As Global.System.Web.UI.WebControls.Button
 End Class

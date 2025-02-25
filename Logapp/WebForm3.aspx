@@ -1,9 +1,9 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="MainPage.aspx.vb" Inherits="Logapp.WebForm1" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm3.aspx.vb" Inherits="Logapp.WebForm3" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>LogApp</title>
+    <title>Giriş Başarılı</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,8 +15,8 @@
             align-items: center;
             height: 100vh;
         }
-        
-        .container {
+
+        .message-box {
             text-align: center;
             background-color: #fff;
             padding: 30px;
@@ -25,19 +25,16 @@
             width: 100%;
             max-width: 500px;
         }
-        
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
+
+        h1 {
+            color: #007bff;
         }
 
-        .btn-container {
+        .btn {
             margin-top: 30px;
         }
 
-        .btn-container .asp-btn {
+        .btn {
             background-color: #007bff;
             color: white;
             padding: 12px 24px;
@@ -49,33 +46,24 @@
             margin: 10px;
         }
 
-        .btn-container .asp-btn:hover {
+        .btn:hover {
             background-color: #45a049;
         }
 
-        .btn-container .asp-btn:focus {
+        .btn:focus {
             outline: none;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            .title {
-                font-size: 20px;
-            }
         }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server" class="container">
-        <p class="title">LogApp'e Hoş Geldiniz</p>
+    <form id="form1" runat="server">
+    <div class="message-box">
+        <h1>Giriş Başarılı!</h1>
+        <p>Hoş geldiniz. Sisteme başarıyla giriş yaptınız.</p>
         
-        <div class="btn-container">
-            <asp:Button ID="uye_btn" runat="server" Text="Kayıt Ol" CssClass="asp-btn" />
-            <asp:Button ID="giris_btn" runat="server" Text="Giriş Yap" CssClass="asp-btn" />
-        </div>
+        <!-- Giriş Yap butonu -->
+        <asp:Button ID="giris_btn" runat="server" CssClass="btn" Text="AnaMenü" OnClick="btnLogin_Click" />
+    </div>
     </form>
 </body>
 </html>

@@ -6,10 +6,10 @@ Public Class Register
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
     End Sub
 
     Protected Sub kayıt_btn_Click(sender As Object, e As EventArgs) Handles kayıt_btn.Click
+
         If tc_tb.Text <> "" And ad_tb.Text <> "" And soyad_tb.Text <> "" And adres_tb.Text <> "" And
             (RadioButtonList1.SelectedValue = "yuk_veren" Or RadioButtonList1.SelectedValue = "yuk_arayan") Then
 
@@ -19,14 +19,20 @@ Public Class Register
             Dim sifre As String = sifre_tb.Text
             Dim plaka As String = plaka_tb.Text
             Dim adres As String = adres_tb.Text
-            Dim durum As String
-            If (RadioButtonList1.SelectedValue = "yuk_veren") Then
+
+            Dim durum As String = ""
+
+            If RadioButtonList1.SelectedValue = "yuk_veren" Then
                 durum = "yuk_veren"
-            ElseIf (RadioButtonList1.SelectedValue = "yuk_arayan") Then
+            ElseIf RadioButtonList1.SelectedValue = "yuk_arayan" Then
                 durum = "yuk_arayan"
             End If
 
-            ' Şifreyi MD5 ile şifrele
+            If String.IsNullOrEmpty(durum) Then
+                MsgBox("Lütfen yük veren veya yük arayan seçeneğini seçin!", MsgBoxStyle.Critical, "Hata")
+                Exit Sub
+            End If
+
             Dim enc As Encoding = Encoding.GetEncoding("iso-8859-9")
             Dim kaynakbyte() As Byte = enc.GetBytes(sifre)
             Dim md5 As New MD5CryptoServiceProvider
@@ -37,14 +43,12 @@ Public Class Register
             Next
             Dim guvenliSifre As String = sifremd5.ToString()
 
-            ' SQL bağlantısı
             Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum, plaka) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum, @plaka)"
             Dim sql2 As String = "SELECT tc FROM uyeler WHERE tc = @tc"
 
-            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True")
+            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=LogApp;Integrated Security=True")
                 baglantı.Open()
 
-                ' Kullanıcının kayıtlı olup olmadığını kontrol et
                 Using komut_kontrol As New SqlCommand(sql2, baglantı)
                     komut_kontrol.Parameters.AddWithValue("@tc", tc)
                     Using veriokuyucu As SqlDataReader = komut_kontrol.ExecuteReader()
@@ -55,7 +59,6 @@ Public Class Register
                     End Using
                 End Using
 
-                ' Yeni kayıt ekleme
                 Using komut As New SqlCommand(sql, baglantı)
                     komut.Parameters.AddWithValue("@tc", tc)
                     komut.Parameters.AddWithValue("@ad", ad)
@@ -64,7 +67,6 @@ Public Class Register
                     komut.Parameters.AddWithValue("@sifre", guvenliSifre)
                     komut.Parameters.AddWithValue("@durum", durum)
 
-                    ' Plaka boşsa NULL olarak ekle
                     If String.IsNullOrEmpty(plaka) Then
                         komut.Parameters.AddWithValue("@plaka", DBNull.Value)
                     Else
@@ -76,7 +78,11 @@ Public Class Register
                 End Using
             End Using
         Else
-            MsgBox("Lütfen tüm alanları eksiksiz doldurun!", MsgBoxStyle.Critical, "Hata")
+            MsgBox("Lütfen tüm alanları eksiksiz doldurun!", MsgBoxStyle.Critical, "Hata")
         End If
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles anamenu_btn.Click
+        Response.Redirect("MainPage.aspx")
     End Sub
 End Class

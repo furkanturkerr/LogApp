@@ -15,7 +15,7 @@
             <asp:TextBox ID="tc_tb" runat="server" CssClass="textbox"></asp:TextBox>
 
             <p class="info-text">Yük Veren Seçerseniz Plaka Girmenize Gerek Yoktur</p>
-            <!-- ASP.NET RadioButtonList -->
+            
             <asp:RadioButtonList ID="RadioButtonList1" runat="server">
                 <asp:ListItem Value="yuk_veren">Yük Veren</asp:ListItem>
                 <asp:ListItem Value="yuk_arayan">Yük Arayan</asp:ListItem>
@@ -36,7 +36,10 @@
             <label for="adres_tb">Adres:</label>
             <asp:TextBox ID="adres_tb" runat="server" CssClass="textbox"></asp:TextBox>
 
-            <asp:Button ID="kayıt_btn" runat="server" Text="Kayıt Ol" CssClass="btn" OnClick="kayıt_btn_Click"/>
+            <asp:Button ID="kayıt_btn" runat="server" Text="Kayıt Ol" CssClass="btn" OnClick="kayıt_btn_Click" />
+            <asp:Button ID="anamenu_btn" runat="server" Text="Ana Menü" CssClass="btn" />
+
+
         </div>
     </form>
 </body>

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class WebForm3
+Partial Public Class Vehicle
 
     '''<summary>
     '''form1 control.
@@ -23,20 +23,20 @@ Partial Public Class WebForm3
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''giris_btn control.
+    '''GridView1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents giris_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''arac_btn control.
+    '''arac_ekle_btn control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents arac_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents arac_ekle_btn As Global.System.Web.UI.WebControls.Button
 End Class

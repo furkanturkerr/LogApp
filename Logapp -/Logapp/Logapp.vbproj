@@ -95,9 +95,11 @@
     <Content Include="login.css" />
     <Content Include="Register.aspx" />
     <Content Include="style.css" />
+    <Content Include="Vehicle.aspx" />
+    <Content Include="VehicleCreate.aspx" />
     <Content Include="Web.config" />
     <Content Include="MainPage.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +136,25 @@
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vehicle.aspx.designer.vb">
+      <DependentUpon>Vehicle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle.aspx.vb">
+      <DependentUpon>Vehicle.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VehicleCreate.aspx.designer.vb">
+      <DependentUpon>VehicleCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleCreate.aspx.vb">
+      <DependentUpon>VehicleCreate.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WebForm3.aspx.designer.vb">

@@ -10,6 +10,6 @@
     End Sub
 
     Protected Sub giris_btn_Click(sender As Object, e As EventArgs) Handles giris_btn.Click
-        Response.Redirect("WebForm2.aspx")
+        Response.Redirect("Login.aspx")
     End Sub
 End Class

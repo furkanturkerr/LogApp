@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Register
+Partial Public Class VehicleCreate
 
     '''<summary>
     '''form1 control.
@@ -23,74 +23,65 @@ Partial Public Class Register
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''tc_tb control.
+    '''arac_ad_tb control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tc_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents arac_ad_tb As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''RadioButtonList1 control.
+    '''marka_list control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents marka_list As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ad_tb control.
+    '''seri_list control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ad_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents seri_list As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''soyad_tb control.
+    '''model_list control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents soyad_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents model_list As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''sifre_tb control.
+    '''yıl_list control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sifre_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents yıl_list As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''adres_tb control.
+    '''arac_plaka_tb control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents adres_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents arac_plaka_tb As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''kayıt_btn control.
+    '''arac_kayıt_btn control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents kayıt_btn As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''anamenu_btn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents anamenu_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents arac_kayıt_btn As Global.System.Web.UI.WebControls.Button
 End Class

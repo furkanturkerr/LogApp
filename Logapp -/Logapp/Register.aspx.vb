@@ -17,7 +17,6 @@ Public Class Register
             Dim ad As String = ad_tb.Text
             Dim soyad As String = soyad_tb.Text
             Dim sifre As String = sifre_tb.Text
-            Dim plaka As String = plaka_tb.Text
             Dim adres As String = adres_tb.Text
 
             Dim durum As String = ""
@@ -43,10 +42,10 @@ Public Class Register
             Next
             Dim guvenliSifre As String = sifremd5.ToString()
 
-            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum, plaka) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum, @plaka)"
+            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum)"
             Dim sql2 As String = "SELECT tc FROM uyeler WHERE tc = @tc"
 
-            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=LogApp;Integrated Security=True")
+            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True")
                 baglantı.Open()
 
                 Using komut_kontrol As New SqlCommand(sql2, baglantı)
@@ -67,12 +66,6 @@ Public Class Register
                     komut.Parameters.AddWithValue("@sifre", guvenliSifre)
                     komut.Parameters.AddWithValue("@durum", durum)
 
-                    If String.IsNullOrEmpty(plaka) Then
-                        komut.Parameters.AddWithValue("@plaka", DBNull.Value)
-                    Else
-                        komut.Parameters.AddWithValue("@plaka", plaka)
-                    End If
-
                     komut.ExecuteNonQuery()
                     MsgBox("Kayıt tamamlandı", MsgBoxStyle.OkOnly, "Kayıt")
                 End Using
@@ -80,6 +73,7 @@ Public Class Register
         Else
             MsgBox("Lütfen tüm alanları eksiksiz doldurun!", MsgBoxStyle.Critical, "Hata")
         End If
+
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles anamenu_btn.Click

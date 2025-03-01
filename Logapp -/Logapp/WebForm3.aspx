@@ -62,7 +62,9 @@
         <p>Hoş geldiniz. Sisteme başarıyla giriş yaptınız.</p>
         
         <!-- Giriş Yap butonu -->
-        <asp:Button ID="giris_btn" runat="server" CssClass="btn" Text="AnaMenü" OnClick="btnLogin_Click" />
+        <asp:Button ID="giris_btn" runat="server" CssClass="btn" Text="AnaMenü" OnClick="btnMainPage_Click" />
+        <br />
+        <asp:Button ID="arac_btn" runat="server" CssClass="btn" Text="Araçlarım" OnClick="btnVehicle_Click" />
     </div>
     </form>
 </body>

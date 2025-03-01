@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class WebForm3
+Partial Public Class Login
 
     '''<summary>
     '''form1 control.
@@ -23,20 +23,38 @@ Partial Public Class WebForm3
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''giris_btn control.
+    '''tc_tb control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents giris_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents tc_tb As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''arac_btn control.
+    '''sifre_tb control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents arac_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents sifre_tb As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''login_btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents login_btn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 End Class

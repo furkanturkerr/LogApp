@@ -5,7 +5,11 @@
 
     End Sub
 
-    Protected Sub btnLogin_Click(sender As Object, e As EventArgs) Handles giris_btn.Click
+    Protected Sub btnMainPage_Click(sender As Object, e As EventArgs) Handles giris_btn.Click
         Response.Redirect("MainPage.aspx")
+    End Sub
+
+    Protected Sub btnVehicle_Click(sender As Object, e As EventArgs) Handles arac_btn.Click
+        Response.Redirect("Vehicle.aspx")
     End Sub
 End Class

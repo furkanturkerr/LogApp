@@ -14,8 +14,6 @@
             <label for="tc_tb">TC:</label>
             <asp:TextBox ID="tc_tb" runat="server" CssClass="textbox"></asp:TextBox>
 
-            <p class="info-text">Yük Veren Seçerseniz Plaka Girmenize Gerek Yoktur</p>
-            
             <asp:RadioButtonList ID="RadioButtonList1" runat="server">
                 <asp:ListItem Value="yuk_veren">Yük Veren</asp:ListItem>
                 <asp:ListItem Value="yuk_arayan">Yük Arayan</asp:ListItem>
@@ -29,9 +27,6 @@
 
             <label for="sifre_tb">Şifre:</label>
             <asp:TextBox ID="sifre_tb" runat="server" TextMode="Password" CssClass="textbox"></asp:TextBox>
-
-            <label for="plaka_tb">Plaka:</label>
-            <asp:TextBox ID="plaka_tb" runat="server" CssClass="textbox"></asp:TextBox>
 
             <label for="adres_tb">Adres:</label>
             <asp:TextBox ID="adres_tb" runat="server" CssClass="textbox"></asp:TextBox>

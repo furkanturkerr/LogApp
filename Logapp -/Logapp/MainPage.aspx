@@ -17,7 +17,7 @@
         }
         
         .container {
-            text-align: center;
+            text-align: center ;
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;

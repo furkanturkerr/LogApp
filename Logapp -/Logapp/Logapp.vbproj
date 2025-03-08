@@ -94,9 +94,16 @@
   <ItemGroup>
     <Content Include="Cargo.aspx" />
     <Content Include="CargoAdd.aspx" />
+    <Content Include="images\aa.png" />
+    <Content Include="images\loga.png" />
+    <Content Include="images\login.jpg" />
+    <Content Include="images\logina.jpg" />
+    <Content Include="images\logo-w.png" />
+    <Content Include="images\wlogo.jpg" />
     <Content Include="login.css" />
+    <Content Include="MainPage.css" />
     <Content Include="Register.aspx" />
-    <Content Include="style.css" />
+    <Content Include="register.css" />
     <Content Include="Vehicle.aspx" />
     <Content Include="VehicleCreate.aspx" />
     <Content Include="Web.config" />
@@ -143,7 +150,7 @@
     </Compile>
     <Compile Include="MainPage.aspx.vb">
       <DependentUpon>MainPage.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Register.aspx.designer.vb">
       <DependentUpon>Register.aspx</DependentUpon>

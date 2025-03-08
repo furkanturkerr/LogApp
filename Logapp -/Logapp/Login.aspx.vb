@@ -1,13 +1,13 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Reflection.Emit
 Imports System.Security.Cryptography
 
 Partial Class Login
     Inherits System.Web.UI.Page
 
-    Protected Sub login_btn_Click(sender As Object, e As EventArgs) Handles MyBase_btn.Click, MyBase_btn.Click, MyBase_btn.Click
-
-        Dim tc As String = tc_tb.Text
-        Dim sifre As String = sifre_tb.Text
+    Protected Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim tc As String = txtTC.Text
+        Dim sifre As String = txtPassword.Text
 
 
         Dim enc As Encoding = Encoding.GetEncoding("iso-8859-9")
@@ -24,7 +24,7 @@ Partial Class Login
         guvenlisifre = sifremd5.ToString
 
 
-        Dim connectionString As String = "Data Source=.;Initial Catalog=log;Integrated Security=True"
+        Dim connectionString As String = "Data Source=.;Initial Catalog=LogApp;Integrated Security=True"
         Dim connection As New SqlConnection(connectionString)
         Dim query As String = "SELECT * FROM uyeler WHERE TC=@tc AND Sifre=@sifre"
         Dim command As New SqlCommand(query, connection)
@@ -35,15 +35,14 @@ Partial Class Login
 
         connection.Open()
         Dim reader As SqlDataReader = command.ExecuteReader()
-
         If reader.HasRows Then
-            Label1.Text = "Giriş başarılı!"
             Response.Redirect("WebForm3.aspx")
         Else
-            Label1.Text = "TC Kimlik Numarası veya Şifre hatalı!"
+            lblError.Text = "Geçersiz TC veya şifre! Lütfen tekrar deneyin."
+            lblError.Visible = True
         End If
 
-        Session("tc") = tc_tb.Text
+        Session("tc") = txtTC
         'Response.Redirect("VehicleCreate.aspx")
 
         connection.Close()

@@ -6,20 +6,33 @@
 <head runat="server">
     <title>Giriş Yap</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="MainPage.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Giriş Yap</h2>
-        <form id="form1" runat="server">
-            <label for="tc">TC Kimlik Numarası:</label>
-            <asp:TextBox ID="tc_tb" runat="server" placeholder="TC Kimlik Numarası" required></asp:TextBox>
-            
-            <label for="password">Şifre:</label>
-            <asp:TextBox ID="sifre_tb" runat="server" TextMode="Password" placeholder="Şifre" required></asp:TextBox>
-            
-            <asp:Button ID="login_btn" runat="server" Text="Giriş Yap" OnClick="login_btn_Click" CssClass="btn" />
-            <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-        </form>
-    </div>
+<div class="header-ic">
+    <a href="MainPage.aspx" class="header-ic"></a>
+</div>
+
+<!-- Login -->
+<div class="container">
+    <h2>Hesabınıza Giriş Yapın</h2>
+    <form id="loginForm" runat="server">
+        <div class="input-group">
+            <label for="txtTC">TC Kimlik Numarası</label>
+            <asp:TextBox ID="txtTC" runat="server" CssClass="input-field" Placeholder="TC Kimlik Numarası" Required="true"></asp:TextBox>
+        </div>
+        <div class="input-group">
+            <label for="txtPassword">Şifre</label>
+            <asp:TextBox ID="txtPassword" runat="server" CssClass="input-field" TextMode="Password" Placeholder="Şifre" Required="true"></asp:TextBox>
+        </div>
+        <div class="forgot-password">
+            <a href="#">Şifremi Unuttum?</a>
+        </div>
+        <asp:Button ID="btnLogin" runat="server" CssClass="login-btn" Text="Giriş Yap" OnClick="btnLogin_Click" />
+    </form>
+    <p>Hesabınız yok mu? <a href="Register.aspx">Üye Ol</a></p>
+
+    <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+</div>
 </body>
 </html>

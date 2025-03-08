@@ -5,25 +5,22 @@ Imports System.Text
 Public Class Register
     Inherits System.Web.UI.Page
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-    End Sub
+    Protected Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        If tcInput.Text <> "" And firstNameInput.Text <> "" And lastNameInput.Text <> "" And addressInput.Text <> "" And
+    (Radio1.Checked AndAlso Radio1.Value = "yuk-veren" Or Radio2.Checked AndAlso Radio2.Value = "yuk-alan") Then
 
-    Protected Sub kayıt_btn_Click(sender As Object, e As EventArgs) Handles kayıt_btn.Click
-
-        If tc_tb.Text <> "" And ad_tb.Text <> "" And soyad_tb.Text <> "" And adres_tb.Text <> "" And
-            (RadioButtonList1.SelectedValue = "yuk_veren" Or RadioButtonList1.SelectedValue = "yuk_arayan") Then
-
-            Dim tc As String = tc_tb.Text
-            Dim ad As String = ad_tb.Text
-            Dim soyad As String = soyad_tb.Text
-            Dim sifre As String = sifre_tb.Text
-            Dim adres As String = adres_tb.Text
+            Dim tc As String = tcInput.Text
+            Dim ad As String = firstNameInput.Text
+            Dim soyad As String = lastNameInput.Text
+            Dim sifre As String = passwordInput.Text
+            Dim plaka As String = plakaInput.Text
+            Dim adres As String = addressInput.Text
 
             Dim durum As String = ""
 
-            If RadioButtonList1.SelectedValue = "yuk_veren" Then
+            If Radio1.Value = "yuk-veren" Then
                 durum = "yuk_veren"
-            ElseIf RadioButtonList1.SelectedValue = "yuk_arayan" Then
+            ElseIf Radio2.Value = "yuk-alan" Then
                 durum = "yuk_arayan"
             End If
 
@@ -42,17 +39,18 @@ Public Class Register
             Next
             Dim guvenliSifre As String = sifremd5.ToString()
 
-            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, adres, sifre, durum) VALUES (@tc, @ad, @soyad, @adres, @sifre, @durum)"
+            Dim sql As String = "INSERT INTO uyeler (tc, ad, soyad, plaka, adres, sifre, durum) VALUES (@tc, @ad, @soyad, @plaka, @adres, @sifre, @durum)"
             Dim sql2 As String = "SELECT tc FROM uyeler WHERE tc = @tc"
 
-            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True")
+            Using baglantı As New SqlConnection("Data Source=.;Initial Catalog=LogApp;Integrated Security=True")
                 baglantı.Open()
 
                 Using komut_kontrol As New SqlCommand(sql2, baglantı)
                     komut_kontrol.Parameters.AddWithValue("@tc", tc)
                     Using veriokuyucu As SqlDataReader = komut_kontrol.ExecuteReader()
                         If veriokuyucu.HasRows Then
-                            MsgBox("Kullanıcı zaten kayıtlı", MsgBoxStyle.Critical, "Uyarı")
+                            lblError.Text = "Kullanıcı zaten kayıtlı"
+                            lblError.Visible = True
                             Exit Sub
                         End If
                     End Using
@@ -62,21 +60,18 @@ Public Class Register
                     komut.Parameters.AddWithValue("@tc", tc)
                     komut.Parameters.AddWithValue("@ad", ad)
                     komut.Parameters.AddWithValue("@soyad", soyad)
+                    komut.Parameters.AddWithValue("@plaka", plaka)
                     komut.Parameters.AddWithValue("@adres", adres)
                     komut.Parameters.AddWithValue("@sifre", guvenliSifre)
                     komut.Parameters.AddWithValue("@durum", durum)
 
                     komut.ExecuteNonQuery()
-                    MsgBox("Kayıt tamamlandı", MsgBoxStyle.OkOnly, "Kayıt")
+                    Response.Redirect("Login.aspx")
                 End Using
             End Using
         Else
-            MsgBox("Lütfen tüm alanları eksiksiz doldurun!", MsgBoxStyle.Critical, "Hata")
+            lblError.Text = "Geçersiz TC veya şifre! Lütfen tekrar deneyin."
+            lblError.Visible = True
         End If
-
-    End Sub
-
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles anamenu_btn.Click
-        Response.Redirect("MainPage.aspx")
     End Sub
 End Class

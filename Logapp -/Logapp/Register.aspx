@@ -4,38 +4,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Kayıt Ol</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="register.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="container">
-            <h2>LogApp'e Kayıt Olun</h2>
+<div class="header-ic">
+    <a href="MainPage.aspx" class="header-ic"></a>
+</div>
 
-            <label for="tc_tb">TC:</label>
-            <asp:TextBox ID="tc_tb" runat="server" CssClass="textbox"></asp:TextBox>
+    <div class="container">
+        <h2>Kayıt Ol</h2>
+        <form id="registrationForm" method="post" runat="server">
+            <div class="center">
+                <div class="input-group">
+                    <div class="radio-group">
+                        <input type="radio" name="user-type" id="Radio1" value="yuk-veren" runat="server" />
+                        <label for="Radio1">Yük Veren</label>
 
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                <asp:ListItem Value="yuk_veren">Yük Veren</asp:ListItem>
-                <asp:ListItem Value="yuk_arayan">Yük Arayan</asp:ListItem>
-            </asp:RadioButtonList>
+                        <input type="radio" name="user-type" id="Radio2" value="yuk-arayan" runat="server" />
+                        <label for="Radio2">Yük Arayan</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="tcInput" runat="server" placeholder="TC Kimlik Numarası" required></asp:TextBox>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="firstNameInput" runat="server" placeholder="Adınızı Girin" required></asp:TextBox>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="lastNameInput" runat="server" placeholder="Soyadınızı Girin" required></asp:TextBox>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="plakaInput" runat="server" placeholder="Plakanızı Girin" required></asp:TextBox>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="passwordInput" runat="server" TextMode="Password" placeholder="Şifre Belirleyin" required></asp:TextBox>
+                </div>
+                <div class="input-group">
+                    <asp:TextBox ID="addressInput" runat="server" placeholder="Adresinizi Girin" required></asp:TextBox>
+                </div>
+            </div>
+            <asp:Button ID="btnRegister" runat="server" CssClass="register-btn" Text="Kayıt Ol" OnClick="btnRegister_Click" />
+            <p>Hesabınız var mı? <a href="login.aspx">Giriş Yap</a></p>
+        </form>
 
-            <label for="ad_tb">Ad:</label>
-            <asp:TextBox ID="ad_tb" runat="server" CssClass="textbox"></asp:TextBox>
-
-            <label for="soyad_tb">Soyad:</label>
-            <asp:TextBox ID="soyad_tb" runat="server" CssClass="textbox"></asp:TextBox>
-
-            <label for="sifre_tb">Şifre:</label>
-            <asp:TextBox ID="sifre_tb" runat="server" TextMode="Password" CssClass="textbox"></asp:TextBox>
-
-            <label for="adres_tb">Adres:</label>
-            <asp:TextBox ID="adres_tb" runat="server" CssClass="textbox"></asp:TextBox>
-
-            <asp:Button ID="kayıt_btn" runat="server" Text="Kayıt Ol" CssClass="btn" OnClick="kayıt_btn_Click" />
-            <asp:Button ID="anamenu_btn" runat="server" Text="Ana Menü" CssClass="btn" />
-
-
-        </div>
-    </form>
+        <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+    </div>
 </body>
 </html>

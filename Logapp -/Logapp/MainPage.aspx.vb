@@ -5,11 +5,11 @@
 
     End Sub
 
-    Protected Sub uye_btn_Click(sender As Object, e As EventArgs) Handles uye_btn.Click
-        Response.Redirect("Register.aspx")
+    Protected Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Response.Redirect("Login.aspx")
     End Sub
 
-    Protected Sub giris_btn_Click(sender As Object, e As EventArgs) Handles giris_btn.Click
-        Response.Redirect("Login.aspx")
+    Protected Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        Response.Redirect("Register.aspx")
     End Sub
 End Class

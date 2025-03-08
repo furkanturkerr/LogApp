@@ -14,83 +14,101 @@ Option Explicit On
 Partial Public Class Register
 
     '''<summary>
-    '''form1 control.
+    '''registrationForm control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents registrationForm As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''tc_tb control.
+    '''Radio1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tc_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Radio1 As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''RadioButtonList1 control.
+    '''Radio2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents Radio2 As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''ad_tb control.
+    '''tcInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ad_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tcInput As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''soyad_tb control.
+    '''firstNameInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents soyad_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents firstNameInput As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''sifre_tb control.
+    '''lastNameInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sifre_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lastNameInput As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''adres_tb control.
+    '''plakaInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents adres_tb As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents plakaInput As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''kayıt_btn control.
+    '''passwordInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents kayıt_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents passwordInput As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''anamenu_btn control.
+    '''addressInput control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents anamenu_btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents addressInput As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnRegister control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnRegister As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
 End Class

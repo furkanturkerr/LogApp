@@ -23,6 +23,7 @@ Public Class VehicleCreate
             Exit Sub
         End If
 
+
     End Sub
 
     Protected Sub marka_list_SelectedIndexChanged(sender As Object, e As EventArgs) Handles marka_list.SelectedIndexChanged

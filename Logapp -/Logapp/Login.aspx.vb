@@ -4,7 +4,7 @@ Imports System.Security.Cryptography
 Partial Class Login
     Inherits System.Web.UI.Page
 
-    Protected Sub login_btn_Click(sender As Object, e As EventArgs)
+    Protected Sub login_btn_Click(sender As Object, e As EventArgs) Handles MyBase_btn.Click, MyBase_btn.Click, MyBase_btn.Click
 
         Dim tc As String = tc_tb.Text
         Dim sifre As String = sifre_tb.Text
@@ -44,7 +44,7 @@ Partial Class Login
         End If
 
         Session("tc") = tc_tb.Text
-        Response.Redirect("VehicleCreate.aspx")
+        'Response.Redirect("VehicleCreate.aspx")
 
         connection.Close()
     End Sub

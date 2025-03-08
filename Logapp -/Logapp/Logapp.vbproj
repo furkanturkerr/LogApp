@@ -92,6 +92,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cargo.aspx" />
+    <Content Include="CargoAdd.aspx" />
     <Content Include="login.css" />
     <Content Include="Register.aspx" />
     <Content Include="style.css" />
@@ -103,6 +105,20 @@
     <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cargo.aspx.designer.vb">
+      <DependentUpon>Cargo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cargo.aspx.vb">
+      <DependentUpon>Cargo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CargoAdd.aspx.designer.vb">
+      <DependentUpon>CargoAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargoAdd.aspx.vb">
+      <DependentUpon>CargoAdd.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

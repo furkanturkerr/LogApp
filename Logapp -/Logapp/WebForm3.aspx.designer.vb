@@ -39,4 +39,13 @@ Partial Public Class WebForm3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents arac_btn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''yuk_btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents yuk_btn As Global.System.Web.UI.WebControls.Button
 End Class

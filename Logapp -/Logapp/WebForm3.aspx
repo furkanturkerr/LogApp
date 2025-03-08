@@ -65,6 +65,8 @@
         <asp:Button ID="giris_btn" runat="server" CssClass="btn" Text="AnaMenü" OnClick="btnMainPage_Click" />
         <br />
         <asp:Button ID="arac_btn" runat="server" CssClass="btn" Text="Araçlarım" OnClick="btnVehicle_Click" />
+        <br />
+        <asp:Button ID="yuk_btn" runat="server" CssClass="btn" Text="Yükler" OnClick="btnCargo_Click" />
     </div>
     </form>
 </body>

@@ -13,7 +13,7 @@ namespace LogApp.Pages
         {
             if (!IsPostBack)
             {
-                if (Session["User"] != null)
+                if (Session["user"] != null)
                 {
                     // Kullanıcı giriş yapmışsa
                     btnLogin.Visible = false;

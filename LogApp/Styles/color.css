@@ -1,0 +1,20 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lugrasimo&family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --body: #fff;
+    --black: #000;
+    --white: #fff;
+    --theme: #ff3726;
+    --theme2: #005cb5;
+    --header: #f3f7fb;
+    --text: #77797e;
+    --ratting: #ffa128;
+    --border: #E3E3E3;
+    --border2: #242449;
+    --border3: #5262FF;
+    --bg: #F3F7FB;
+    --bg2: #18185E;
+    --bg3: #ffffff33;
+    --bg4: #f3f7fb;
+    --box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.1);
+}

@@ -73,6 +73,7 @@
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Profiles\account.aspx" />
     <Content Include="Pages\Profiles\Cars.aspx" />
+    <Content Include="Pages\Profiles\Css\account.css" />
     <Content Include="Pages\Profiles\Css\Cars.css" />
     <Content Include="Pages\Profiles\Css\Profile.css" />
     <Content Include="Pages\Profiles\notifications.aspx" />

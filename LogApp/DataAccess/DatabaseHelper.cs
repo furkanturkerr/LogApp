@@ -105,6 +105,28 @@ public class DatabaseHelper
             }
         }
     }
+
+    // Kullanıcı BİLGİLERİNİ GÜNCELLEME
+    public bool KullaniciBilgileriniGuncelle(string tc, string ad, string soyad, string plaka, string adres)
+    {
+        string query = "UPDATE uyeler SET Ad=@ad, Soyad=@soyad, Plaka=@plaka, Adres=@adres WHERE TC=@tc";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@tc", tc);
+                command.Parameters.AddWithValue("@ad", ad);
+                command.Parameters.AddWithValue("@soyad", soyad);
+                command.Parameters.AddWithValue("@plaka", plaka);
+                command.Parameters.AddWithValue("@adres", adres);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+    }
     private string ComputeMD5Hash(string input)
     {
         using (MD5 md5 = MD5.Create())

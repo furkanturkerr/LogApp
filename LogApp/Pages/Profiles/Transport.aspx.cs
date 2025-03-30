@@ -13,5 +13,25 @@ namespace LogApp.Pages.Profiles
         {
 
         }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profiles/Profil.aspx");
+        }
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon(); // Oturumu sonlandır
+            Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
+        }
     }
 }

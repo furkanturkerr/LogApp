@@ -15,7 +15,7 @@ namespace LogApp.Pages.Profiles
         {
             if (!IsPostBack) // Sayfa ilk kez yükleniyorsa çalıştır
             {
-                string tc = Session["UserTC"] as string; // Oturumdan TC al
+                string tc = Session["User"] as string; // Oturumdan TC al
 
                 if (!string.IsNullOrEmpty(tc))
                 {
@@ -23,7 +23,7 @@ namespace LogApp.Pages.Profiles
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx"); // Oturum yoksa giriş sayfasına yönlendir
+                    Response.Redirect("../Login.aspx"); // Oturum yoksa giriş sayfasına yönlendir
                 }
             }
         }
@@ -37,7 +37,6 @@ namespace LogApp.Pages.Profiles
                 reader.Read();
                 txtAd.Text = reader["Ad"].ToString();
                 txtSoyad.Text = reader["Soyad"].ToString();
-                txtTc.Text = reader["Tc"].ToString();
                 txtPlaka.Text = reader["Plaka"].ToString();
                 txtAdres.Text = reader["Adres"].ToString();
             }
@@ -68,7 +67,27 @@ namespace LogApp.Pages.Profiles
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            string tc = Session["User"] as string;
 
+            if (!string.IsNullOrEmpty(tc))
+            {
+                bool isUpdated = dbHelper.KullaniciBilgileriniGuncelle(tc, txtAd.Text, txtSoyad.Text, txtPlaka.Text, txtAdres.Text);
+
+                if (isUpdated)
+                {
+                    lblMessage.Text = "Bilgiler başarıyla güncellendi!";
+                    lblMessage.CssClass = "success";
+                }
+                else
+                {
+                    lblMessage.Text = "Güncelleme başarısız!";
+                    lblMessage.CssClass = "error";
+                }
+            }
+            else
+            {
+                Response.Redirect("../login.aspx");
+            }
         }
     }
 }

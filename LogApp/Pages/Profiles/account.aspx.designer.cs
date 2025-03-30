@@ -60,6 +60,15 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtTc control.
+        /// txtPlaka control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTc;
+        protected global::System.Web.UI.WebControls.TextBox txtPlaka;
 
         /// <summary>
         /// Label4 control.
@@ -123,31 +132,13 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtPlaka control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaka;
-
-        /// <summary>
         /// txtAdres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtAdres;
-
-        /// <summary>
-        /// TextBox5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtAdres;
 
         /// <summary>
         /// btnSubmit control.

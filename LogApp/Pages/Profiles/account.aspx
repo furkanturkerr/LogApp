@@ -94,29 +94,30 @@
         </div>
         <div class="header-ic">
             <div class="form-container">
+                <asp:Label ID="lblMessage" runat="server" CssClass="message"></asp:Label>
+
                 <div class="form-group">
                     <asp:Label ID="Label1" runat="server" Text="Ad: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtAd" runat="server" CssClass="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txtAd" runat="server" CssClass="textbox" Enabled="true"></asp:TextBox>
                 </div>
+
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Soyad: " CssClass="label"></asp:Label>
                     <asp:TextBox ID="txtSoyad" runat="server" CssClass="textbox"></asp:TextBox>
                 </div>
+
                 <div class="form-group">
-                    <asp:Label ID="Label3" runat="server" Text="TC: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtTc" runat="server" CssClass="textbox"></asp:TextBox>
-                </div>
-                <div class="form-group">
-                    <asp:Label ID="Label4" runat="server" Text="Plaka: " CssClass="label"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Plaka: " CssClass="label"></asp:Label>
                     <asp:TextBox ID="txtPlaka" runat="server" CssClass="textbox"></asp:TextBox>
                 </div>
+
                 <div class="form-group">
-                    <asp:Label ID="txtAdres" runat="server" Text="Adres: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="TextBox5" runat="server" CssClass="textbox"></asp:TextBox>
+                    <asp:Label ID="Label4" runat="server" Text="Adres: " CssClass="label"></asp:Label>
+                    <asp:TextBox ID="txtAdres" runat="server" CssClass="textbox"></asp:TextBox>
                 </div>
-                <div class="form-group button-group">
-                    <asp:Button ID="btnSubmit" runat="server" Text="Kaydet" CssClass="button" OnClick="btnSubmit_Click" />
-                </div>
+
+                <asp:Button ID="btnSubmit" runat="server" Text="Güncelle" CssClass="button" OnClick="btnSubmit_Click" />
+
             </div>
         </div>
     </main>

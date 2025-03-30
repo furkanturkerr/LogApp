@@ -12,11 +12,16 @@
 body {
     background-color: #f6f2fa;
     height: calc(100vh - 150px);
+    height: 100vh;
+}
+
+#form1{
+    height: 100%;
 }
 
 .containerr {
     display: flex;
-    height: 80%;
+    height: 83%;
     margin-top: 5px;
 }
 
@@ -105,3 +110,19 @@ main {
     flex: 1;
     z-index: -1;
 }
+
+.settings ul li .logout-btn {
+    background-color: var(--theme2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition:all 1s;
+}
+
+    .settings ul li .logout-btn:hover {
+        background-color: #cc0000;
+    }
+

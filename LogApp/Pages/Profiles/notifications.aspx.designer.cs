@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogApp.Pages
+namespace LogApp.Pages.Profiles
 {
 
 
-    public partial class Profil
+    public partial class notifications
     {
 
         /// <summary>

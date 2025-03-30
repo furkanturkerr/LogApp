@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace LogApp.Pages
+namespace LogApp.Pages.Profiles
 {
-    public partial class Profil : System.Web.UI.Page
+    public partial class notifications : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void btnProfile_Click(object sender, EventArgs e)
@@ -32,6 +33,5 @@ namespace LogApp.Pages
             Session.Abandon(); // Oturumu sonlandır
             Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
         }
-
     }
 }

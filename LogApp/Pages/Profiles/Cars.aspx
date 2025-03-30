@@ -1,16 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Profil.aspx.cs" Inherits="LogApp.Pages.Profil" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="LogApp.Pages.Profiles.Cars" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="../../Styles/MainPage.css">
+        <link rel="stylesheet" href="../../Styles/MainPage.css">
     <link rel="stylesheet" href="../../Styles/color.css">
     <link rel="stylesheet" href="Css/Profile.css">
 </head>
 <body>
-        <form id="form1" runat="server" class="container">
+            <form id="form1" runat="server" class="container">
                 <header class="header">
             <div class="header-top">
                 <div class="header-top-lr">

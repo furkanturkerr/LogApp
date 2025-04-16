@@ -50,7 +50,7 @@
                      <div class="profile-container">
                    <asp:Button ID="btnProfile" runat="server" CssClass="profile" Text="Profilim" OnClick="btnProfile_Click" Visible="false" /><i class="fa-solid fa-angle-down"></i>
                     <div class="menu">
-                        <a href="tools.html">Araçlarım</a>
+                        <a href="Profiles/Cars.aspx">Araçlarım</a>
                         <a href="logout.html">Çıkış Yap</a>
                     </div>
                 </div>

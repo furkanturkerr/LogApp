@@ -10,7 +10,7 @@
 <body>
  <form id="form1" runat="server">
         <div class="form-wrapper">
-            <asp:Button ID="Button2" runat="server" CssClass="profil-button" Text="Profilim"  OnClick="Profil_Click"/>
+            <asp:Button ID="Button2" runat="server" CssClass="profil-button" Text="Araçlarım"  OnClick="Profil_Click"/>
             <h2>Araç Ekleme Formu</h2>
             
             <div class="form-group">

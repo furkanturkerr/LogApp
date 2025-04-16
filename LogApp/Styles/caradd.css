@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lugrasimo&family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
     --primary: #6366f1;
     --accent: #8b5cf6;
     --bg-dark: #1e293b;
@@ -7,19 +9,25 @@
     --label-color: #94a3b8;
 }
 
+
 body {
     margin: 0;
     padding: 0;
-    background: var(--bg-dark);
     font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-image: url(Image/logina.jpg);
+}
+
+#form1 {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .form-wrapper {
-    background-color: #0f172a;
+    background-color: white;
     border-radius: 16px;
     padding: 40px 30px;
     width: 100%;
@@ -33,7 +41,7 @@ h2 {
     margin-bottom: 30px;
     font-size: 24px;
     font-weight: 600;
-    color: white;
+    color: black;
 }
 
 .form-group {
@@ -44,24 +52,24 @@ label {
     display: block;
     margin-bottom: 6px;
     font-size: 14px;
-    color: var(--label-color);
+    color: black;
 }
 
 .form-control {
-    width: 100%;
+    width: 95%;
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid #475569;
-    background-color: var(--input-bg);
-    color: white;
+    background-color: white;
+    color: var(--theme);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
     .form-control:focus {
         outline: none;
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.4);
+        color: var(--theme);
+        border-color: #ff3726;
     }
 
 .submit-button {
@@ -71,14 +79,38 @@ label {
     font-weight: 600;
     border-radius: 10px;
     border: none;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background-color: var(--theme2);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .submit-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
+    }
+
+.profil-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--theme2);
     color: white;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     margin-top: 20px;
 }
 
-    .submit-button:hover {
+    .profil-button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+        box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
     }
+
+.uyari {
+    color: var(--theme);
+}

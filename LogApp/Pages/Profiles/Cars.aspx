@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../../Styles/MainPage.css">
     <link rel="stylesheet" href="../../Styles/color.css">
     <link rel="stylesheet" href="Css/Profile.css">
+     <link rel="stylesheet" href="Css/Cars.css">
 </head>
 <body>
             <form id="form1" runat="server" class="container">
@@ -87,13 +88,27 @@
         </aside>
 
         <!-- Sağ İçerik Alanı -->
-        <main class="content-a">
-            <div class="header-aa">
-                <div class="header-ic">
-                    <a href="car.html" class="header-ic"></a>
+       <main class="content-a">
+    <div class="header-aa">
+        <asp:Button ID="Button2" runat="server" Text="Araç Ekle" CssClass="car" OnClick="btncar_Click" />
+        <div class="header-ic">
+            <a href="car.html" class="header-ic"></a>
+        </div>
+    </div>
+
+    <div class="car-list">
+        <asp:Repeater ID="CarRepeater" runat="server">
+            <ItemTemplate>
+                <div class="car-item">
+                    <h3><%# Eval("arac_ad") %></h3>
+                    <p>Marka: <%# Eval("arac_marka") %></p>
+                    <p>Seri: <%# Eval("arac_seri") %></p>
+                    <p>Plaka: <%# Eval("arac_plaka") %></p>
                 </div>
-            </div>
-        </main>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+</main>
     </div>
     </form>
 </body>

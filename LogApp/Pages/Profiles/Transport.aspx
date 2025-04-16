@@ -91,7 +91,6 @@
         <div class="header-aa">
             <div class="header-ic">
                 <a href="car.html" class="header-ic"></a>
-                <asp:Button ID="Button2" runat="server" Text="Araç Ekle" CssClass="car" OnClick="btncar_Click" />
             </div>
         </div>
     </main>

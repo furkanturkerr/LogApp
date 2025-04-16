@@ -18,6 +18,7 @@ namespace LogApp.Pages.Profiles
         {
             Response.Redirect("Profiles/Profil.aspx");
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
@@ -32,11 +33,6 @@ namespace LogApp.Pages.Profiles
         {
             Session.Abandon(); // Oturumu sonlandır
             Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
-        }
-
-        protected void btncar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../CarAdd.aspx"); 
         }
     }
 }

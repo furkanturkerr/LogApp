@@ -5,10 +5,12 @@
 <head runat="server">
     <title>Araç Ekle</title>
     <link rel="stylesheet" href="../Styles/caradd.css" />
+    <link rel="stylesheet" href="../../Styles/color.css">
 </head>
 <body>
  <form id="form1" runat="server">
         <div class="form-wrapper">
+            <asp:Button ID="Button2" runat="server" CssClass="profil-button" Text="Profilim"  OnClick="Profil_Click"/>
             <h2>Araç Ekleme Formu</h2>
             
             <div class="form-group">
@@ -47,6 +49,9 @@
             </div>
 
             <asp:Button ID="addCarButton" runat="server" CssClass="submit-button" Text="Araç Ekle" OnClick="AddCarButton_Click" />
+            
+            <asp:Label ID="Label1" runat="server" Text="Label" CssClass="uyari" Visible="False"></asp:Label>
+            
         </div>
     </form>
 </body>

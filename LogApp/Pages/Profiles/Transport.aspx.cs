@@ -33,5 +33,10 @@ namespace LogApp.Pages.Profiles
             Session.Abandon(); // Oturumu sonlandır
             Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
         }
+
+        protected void btncar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../CarAdd.aspx"); 
+        }
     }
 }

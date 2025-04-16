@@ -72,6 +72,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Profiles\account.aspx" />
+    <Content Include="Pages\CarAdd.aspx" />
     <Content Include="Pages\Profiles\Cars.aspx" />
     <Content Include="Pages\Profiles\Css\account.css" />
     <Content Include="Pages\Profiles\Css\Cars.css" />
@@ -83,6 +84,7 @@
     <Content Include="Pages\Register.aspx" />
     <Content Include="Pages\Vehicle.aspx" />
     <Content Include="Pages\VehicleCreate.aspx" />
+    <Content Include="Styles\caradd.css" />
     <Content Include="Styles\color.css" />
     <Content Include="Styles\MainPage.css" />
     <Content Include="Styles\Image\aa.png" />
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="Pages\Profiles\account.aspx.designer.cs">
       <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CarAdd.aspx.cs">
+      <DependentUpon>CarAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CarAdd.aspx.designer.cs">
+      <DependentUpon>CarAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Profiles\Cars.aspx.cs">
       <DependentUpon>Cars.aspx</DependentUpon>

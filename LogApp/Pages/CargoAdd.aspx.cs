@@ -34,7 +34,7 @@ namespace LogApp
             string bosaltmaAdres = bosaltma_adres_tb.Text;
             string tur = tur_list.SelectedValue;
 
-            using (SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=log;Integrated Security=True"))
+            using (SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=LogApp;Integrated Security=True"))
             {
                 baglanti.Open();
                 string sql = "INSERT INTO araclar (tc, baslik, fiyat, komisyon, yukleme_adres, bosaltma_adres, tur) VALUES (@tc, @baslik, @fiyat, @komisyon, @yuklemeAdres, @bosaltmaAdres, @tur)";

@@ -15,7 +15,7 @@ namespace LogApp.Pages
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profiles/Profil.aspx");
+            Response.Redirect("~/Pages/Profiles/Profil.aspx");
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {

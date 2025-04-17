@@ -1,0 +1,29 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-image: url(Image/logina.jpg);
+}
+
+#btnYuklemeEkle {
+    color: var(--theme);
+    border-color: var(--theme);
+}
+
+    #btnYuklemeEkle:hover {
+        background-color: var(--theme);
+        color: white;
+    }
+
+h3{
+    color: white;
+}
+
+h5{
+    color:white;
+}
+
+label {
+    color: white;
+}

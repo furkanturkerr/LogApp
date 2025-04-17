@@ -14,28 +14,55 @@ namespace LogApp.Pages.Profiles
         {
             if (!IsPostBack)
             {
-                // Veritabanından araçları çek ve Repeater kontrolüne bağla
-                string connectionString = "Data Source=.;Initial Catalog=LogApp;Integrated Security=True";
-                string query = "SELECT arac_ad, arac_marka, arac_seri, arac_plaka FROM araclar";
+                Listele();
+            }
+        }
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+        private void Listele()
+        {
+            string connectionString = "Data Source=.;Initial Catalog=LogApp;Integrated Security=True";
+            string query = "SELECT arac_ad, arac_marka, arac_seri, arac_plaka FROM araclar";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                try
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        CarRepeater.DataSource = reader;
-                        CarRepeater.DataBind();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Hata mesajını gösterme
-                        Response.Write("<script>alert('Hata: " + ex.Message + "');</script>");
-                    }
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    // Repeater kontrolünü veri ile doldur
+                    CarRepeater.DataSource = reader;
+                    CarRepeater.DataBind();  // Verileri Repeater'a bağla
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Hata: " + ex.Message + "');</script>");
                 }
             }
         }
+
+        protected void rptAraclar_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Sil")
+            {
+                string plaka = e.CommandArgument.ToString();
+
+                string query = "DELETE FROM araclar WHERE arac_plaka = @plaka";
+                using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=LogApp;Integrated Security=True"))
+                {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@plaka", plaka);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();  // Silme işlemini gerçekleştir
+
+                    // Silme işleminden sonra listeyi yeniden güncelle
+                    Listele();
+                }
+            }
+        }
+
+
 
         protected void btncar_Click(object sender, EventArgs e)
         {

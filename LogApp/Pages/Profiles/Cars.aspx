@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="LogApp.Pages.Profiles.Cars" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cars.aspx.cs" Inherits="LogApp.Pages.Profiles.Cars" %>
 
 <!DOCTYPE html>
 
@@ -97,13 +97,25 @@
     </div>
 
     <div class="car-list">
-        <asp:Repeater ID="CarRepeater" runat="server">
+        <asp:Repeater ID="CarRepeater" runat="server" OnItemCommand="rptAraclar_ItemCommand">
             <ItemTemplate>
                 <div class="car-item">
                     <h3><%# Eval("arac_ad") %></h3>
                     <p>Marka: <%# Eval("arac_marka") %></p>
                     <p>Seri: <%# Eval("arac_seri") %></p>
                     <p>Plaka: <%# Eval("arac_plaka") %></p>
+                    
+                    <div class="sil">
+                            <asp:LinkButton 
+                            ID="btnSil" 
+                            runat="server" 
+                            CommandName="Sil" 
+                            CommandArgument='<%# Eval("arac_plaka") %>' 
+                            OnClientClick="return confirm('Bu aracı silmek istediğinizden emin misiniz?');"
+                            CssClass="sil-buton">
+                            Sil
+                        </asp:LinkButton>
+                    </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

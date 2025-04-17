@@ -10,6 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server" class="container">
+        <!------------------------------------------------------------------>
                 <header class="header">
             <div class="header-top">
                 <div class="header-top-lr">
@@ -58,6 +59,19 @@
             </div>
             <hr class="header-line">
         </header>
+        <!------------------------------------------------------------------>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>LogApp<br />Tırcılar İçin Yük Bulmanın En Kolay Yolu</h1>
+                <p>LogApp ile size en uygun yükleri zahmetsizce bulun, zamanınızı yolda kazanca çevirin.Hemen yük aramaya başlayın!</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn">Yük Ara</a>
+                    <a href="#" class="cta-btn">Kayıt Ol</a>
+                </div>
+            </div>
+        </section>
+
+        <!------------------------------------------------------------------>
     </form>
 </body>
 </html>

@@ -10,6 +10,7 @@ namespace LogApp.Pages
 {
     public partial class Contact : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -51,7 +52,7 @@ namespace LogApp.Pages
             try
             {
                 MailMessage mesaj = new MailMessage();
-                mesaj.From = new MailAddress("seninmail@logapp.com");
+                mesaj.From = new MailAddress("furkanturker.dev@gmail.com");
                 mesaj.To.Add("destek@logapp.com");
                 mesaj.Subject = "İletişim Formu: " + ddlKonu.SelectedValue;
                 mesaj.Body =
@@ -65,7 +66,7 @@ namespace LogApp.Pages
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.mailserver.com";
                 smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("seninmail@logapp.com", "sifre");
+                smtp.Credentials = new System.Net.NetworkCredential("furkanturker.dev@gmail.com", "sifre");
                 smtp.EnableSsl = true;
                 smtp.Send(mesaj);
 

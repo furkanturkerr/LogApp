@@ -69,6 +69,9 @@
   <ItemGroup>
     <Content Include="Pages\Cargo.aspx" />
     <Content Include="Pages\CargoAdd.aspx" />
+    <Content Include="Pages\CargoMain.aspx" />
+    <Content Include="Pages\Contact.aspx" />
+    <Content Include="Pages\LoadAdd.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Profiles\account.aspx" />
@@ -76,6 +79,7 @@
     <Content Include="Pages\Profiles\Cars.aspx" />
     <Content Include="Pages\Profiles\Css\account.css" />
     <Content Include="Pages\Profiles\Css\Cars.css" />
+    <Content Include="Pages\Profiles\Css\offers.css" />
     <Content Include="Pages\Profiles\Css\Profile.css" />
     <Content Include="Pages\Profiles\notifications.aspx" />
     <Content Include="Pages\Profiles\Offers.aspx" />
@@ -87,6 +91,10 @@
     <Content Include="Styles\caradd.css" />
     <Content Include="Styles\color.css" />
     <Content Include="Styles\Image\tir.jpeg" />
+<<<<<<< HEAD
+=======
+    <Content Include="Styles\loadadd.css" />
+>>>>>>> kurtarma
     <Content Include="Styles\MainPage.css" />
     <Content Include="Styles\Image\aa.png" />
     <Content Include="Styles\Image\loga.png" />
@@ -112,6 +120,27 @@
     </Compile>
     <Compile Include="Pages\CargoAdd.aspx.designer.cs">
       <DependentUpon>CargoAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CargoMain.aspx.cs">
+      <DependentUpon>CargoMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CargoMain.aspx.designer.cs">
+      <DependentUpon>CargoMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoadAdd.aspx.cs">
+      <DependentUpon>LoadAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LoadAdd.aspx.designer.cs">
+      <DependentUpon>LoadAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

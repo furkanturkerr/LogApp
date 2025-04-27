@@ -4,10 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     <title></title>
         <link rel="stylesheet" href="../../Styles/MainPage.css">
     <link rel="stylesheet" href="../../Styles/color.css">
     <link rel="stylesheet" href="Css/Profile.css">
+    <link rel="stylesheet" href="Css/offers.css">
 </head>
 <body>
     <form id="form1" runat="server" class="container">
@@ -91,6 +93,31 @@
         <div class="header-aa">
             <div class="header-ic">
                 <a href="car.html" class="header-ic"></a>
+               <asp:Repeater ID="rptNoktalar" runat="server">
+                <ItemTemplate>
+                    <div class="card-row">
+                        <!-- Yükleme Kartı -->
+                        <div class="card-box load">
+                            <h4>🚛 Yükleme Noktası</h4>
+                            <p><strong>İsim:</strong> <%# Eval("Yukleme.Isim") %></p>
+                            <p><strong>Telefon:</strong> <%# Eval("Yukleme.Telefon") %></p>
+                            <p><strong>Şehir:</strong> <%# Eval("Yukleme.Sehir") %></p>
+                            <p><strong>Adres:</strong> <%# Eval("Yukleme.Adres") %></p>
+                        </div>
+
+                        <!-- Teslimat Kartı -->
+                        <div class="card-box deliver">
+                            <h4>📦 Teslimat Noktası</h4>
+                            <p><strong>İsim:</strong> <%# Eval("Teslimat.Isim") %></p>
+                            <p><strong>Telefon:</strong> <%# Eval("Teslimat.Telefon") %></p>
+                            <p><strong>Şehir:</strong> <%# Eval("Teslimat.Sehir") %></p>
+                            <p><strong>Adres:</strong> <%# Eval("Teslimat.Adres") %></p>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater> 
+</div>
+
             </div>
         </div>
     </main>

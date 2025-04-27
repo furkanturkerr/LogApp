@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogApp.Pages.Profiles
+namespace LogApp.Pages
 {
 
 
-    public partial class Offers
+    public partial class LoadAdd
     {
 
         /// <summary>
@@ -24,48 +24,66 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnLogin control.
+        /// txtAlimTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtAlimTarihi;
 
         /// <summary>
-        /// btnRegister control.
+        /// txtTeslimTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.TextBox txtTeslimTarihi;
 
         /// <summary>
-        /// btnProfile control.
+        /// btnYuklemeEkle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProfile;
+        protected global::System.Web.UI.WebControls.Button btnYuklemeEkle;
 
         /// <summary>
-        /// btnLogout control.
+        /// btnTeslimatEkle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnTeslimatEkle;
 
         /// <summary>
-        /// rptNoktalar control.
+        /// phYuklemeNoktalari control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptNoktalar;
+        protected global::System.Web.UI.WebControls.PlaceHolder phYuklemeNoktalari;
+
+        /// <summary>
+        /// phTeslimatNoktalari control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phTeslimatNoktalari;
+
+        /// <summary>
+        /// btnDevamEt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDevamEt;
     }
 }

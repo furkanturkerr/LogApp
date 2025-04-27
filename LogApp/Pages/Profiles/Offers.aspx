@@ -94,28 +94,28 @@
             <div class="header-ic">
                 <a href="car.html" class="header-ic"></a>
                <asp:Repeater ID="rptNoktalar" runat="server">
-    <ItemTemplate>
-        <div class="card-row">
-            <!-- Yükleme Kartı -->
-            <div class="card-box load">
-                <h4>🚛 Yükleme Noktası</h4>
-                <p><strong>İsim:</strong> <%# Eval("Yukleme.Isim") %></p>
-                <p><strong>Telefon:</strong> <%# Eval("Yukleme.Telefon") %></p>
-                <p><strong>Şehir:</strong> <%# Eval("Yukleme.Sehir") %></p>
-                <p><strong>Adres:</strong> <%# Eval("Yukleme.Adres") %></p>
-            </div>
+                <ItemTemplate>
+                    <div class="card-row">
+                        <!-- Yükleme Kartı -->
+                        <div class="card-box load">
+                            <h4>🚛 Yükleme Noktası</h4>
+                            <p><strong>İsim:</strong> <%# Eval("Yukleme.Isim") %></p>
+                            <p><strong>Telefon:</strong> <%# Eval("Yukleme.Telefon") %></p>
+                            <p><strong>Şehir:</strong> <%# Eval("Yukleme.Sehir") %></p>
+                            <p><strong>Adres:</strong> <%# Eval("Yukleme.Adres") %></p>
+                        </div>
 
-            <!-- Teslimat Kartı -->
-            <div class="card-box deliver">
-                <h4>📦 Teslimat Noktası</h4>
-                <p><strong>İsim:</strong> <%# Eval("Teslimat.Isim") %></p>
-                <p><strong>Telefon:</strong> <%# Eval("Teslimat.Telefon") %></p>
-                <p><strong>Şehir:</strong> <%# Eval("Teslimat.Sehir") %></p>
-                <p><strong>Adres:</strong> <%# Eval("Teslimat.Adres") %></p>
-            </div>
-        </div>
-    </ItemTemplate>
-</asp:Repeater>
+                        <!-- Teslimat Kartı -->
+                        <div class="card-box deliver">
+                            <h4>📦 Teslimat Noktası</h4>
+                            <p><strong>İsim:</strong> <%# Eval("Teslimat.Isim") %></p>
+                            <p><strong>Telefon:</strong> <%# Eval("Teslimat.Telefon") %></p>
+                            <p><strong>Şehir:</strong> <%# Eval("Teslimat.Sehir") %></p>
+                            <p><strong>Adres:</strong> <%# Eval("Teslimat.Adres") %></p>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater> 
 </div>
 
             </div>

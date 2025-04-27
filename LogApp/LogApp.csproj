@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="Pages\Cargo.aspx" />
     <Content Include="Pages\CargoAdd.aspx" />
+    <Content Include="Pages\CargoMain.aspx" />
+    <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\LoadAdd.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\MainPage.aspx" />
@@ -115,6 +117,20 @@
     </Compile>
     <Compile Include="Pages\CargoAdd.aspx.designer.cs">
       <DependentUpon>CargoAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CargoMain.aspx.cs">
+      <DependentUpon>CargoMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CargoMain.aspx.designer.cs">
+      <DependentUpon>CargoMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoadAdd.aspx.cs">
       <DependentUpon>LoadAdd.aspx</DependentUpon>

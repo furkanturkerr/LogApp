@@ -91,10 +91,7 @@
     <Content Include="Styles\caradd.css" />
     <Content Include="Styles\color.css" />
     <Content Include="Styles\Image\tir.jpeg" />
-<<<<<<< HEAD
-=======
     <Content Include="Styles\loadadd.css" />
->>>>>>> kurtarma
     <Content Include="Styles\MainPage.css" />
     <Content Include="Styles\Image\aa.png" />
     <Content Include="Styles\Image\loga.png" />

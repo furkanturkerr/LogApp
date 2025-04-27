@@ -27,7 +27,7 @@ namespace LogApp
 
             if (girisBasarili)
             {
-                Session["Users"] = txtTC.Text;
+                Session["User"] = txtTC.Text;
                 Response.Redirect("MainPage.aspx");
             }
             else

@@ -65,15 +65,14 @@
     <aside class="sidebar-a">
         <div class="profile-a">
             <div class="avatar">FT</div>
-            <h2>Furkan TÜRKER</h2>
-            <p>★★★★★</p>
+                <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
             <ul>
                 <li><a href="../Profiles/Profil.aspx">Anasayfa</a></li>
                 <li><a href="../Profiles/Cars.aspx">Araçlarım</a></li>
-                <li><a href="../Profiles/Offers.aspx">Teklifler</a></li>
-                <li><a href="../Profiles/Transport.aspx">Taşımalarım</a></li>
+                <li><a href="../Profiles/Offers.aspx">Yük İlanlarım</a></li>
+                <li><a href="../Profiles/Transport.aspx">Tekliflerim</a></li>
                 <li><a href="../Profiles/notifications.aspx">Bildirimler</a></li>
                 <li><a href="../Profiles/notifications.aspx">Mesajlar</a></li>
             </ul>

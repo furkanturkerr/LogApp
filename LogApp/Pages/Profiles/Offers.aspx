@@ -67,15 +67,14 @@
     <aside class="sidebar-a">
         <div class="profile-a">
             <div class="avatar">FT</div>
-            <h2>Furkan TÜRKER</h2>
-            <p>★★★★★</p>
+                <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
             <ul>
                 <li><a href="../Profiles/Profil.aspx">Anasayfa</a></li>
                 <li><a href="../Profiles/Cars.aspx">Araçlarım</a></li>
-                <li><a href="../Profiles/Offers.aspx">Teklifler</a></li>
-                <li><a href="../Profiles/Transport.aspx">Taşımalarım</a></li>
+                <li><a href="../Profiles/Offers.aspx">Yük İlanlarım</a></li>
+                <li><a href="../Profiles/Transport.aspx">Tekliflerim</a></li>
                 <li><a href="../Profiles/notifications.aspx">Bildirimler</a></li>
                 <li><a href="../Profiles/notifications.aspx">Mesajlar</a></li>
             </ul>
@@ -89,38 +88,58 @@
     </aside>
 
     <!-- Sağ İçerik Alanı -->
-    <main class="content-a">
-        <div class="header-aa">
-            <div class="header-ic">
-                <a href="car.html" class="header-ic"></a>
-               <asp:Repeater ID="rptNoktalar" runat="server">
-                <ItemTemplate>
-                    <div class="card-row">
-                        <!-- Yükleme Kartı -->
-                        <div class="card-box load">
-                            <h4>🚛 Yükleme Noktası</h4>
-                            <p><strong>İsim:</strong> <%# Eval("Yukleme.Isim") %></p>
-                            <p><strong>Telefon:</strong> <%# Eval("Yukleme.Telefon") %></p>
-                            <p><strong>Şehir:</strong> <%# Eval("Yukleme.Sehir") %></p>
-                            <p><strong>Adres:</strong> <%# Eval("Yukleme.Adres") %></p>
-                        </div>
+<main class="content-a">
+    <div class="header-aa">
+        <asp:Button ID="Button2" runat="server" Text="Yük Ekle" CssClass="cars" OnClick="btnyuk_Click" />
+        
+<div class="header-ic">
+                <a href="offers.html" class="header-ic"></a>
+           <!-- Yük Listesi -->
+  <h3>Teklifler</h3>
 
-                        <!-- Teslimat Kartı -->
-                        <div class="card-box deliver">
-                            <h4>📦 Teslimat Noktası</h4>
-                            <p><strong>İsim:</strong> <%# Eval("Teslimat.Isim") %></p>
-                            <p><strong>Telefon:</strong> <%# Eval("Teslimat.Telefon") %></p>
-                            <p><strong>Şehir:</strong> <%# Eval("Teslimat.Sehir") %></p>
-                            <p><strong>Adres:</strong> <%# Eval("Teslimat.Adres") %></p>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater> 
+<asp:GridView ID="gvTeklifler" runat="server" AutoGenerateColumns="False" 
+              OnRowCommand="gvTeklifler_RowCommand" 
+              OnRowDataBound="gvTeklifler_RowDataBound" 
+              CssClass="table table-striped">
+    <Columns>
+        <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" SortExpression="YukAdi" />
+        <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" SortExpression="AlinacakSehir" />
+        <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Edilecek Şehir" SortExpression="TeslimEdilecekSehir" />
+        <asp:BoundField DataField="Tarih" HeaderText="Tarih" SortExpression="Tarih" />
+        <asp:BoundField DataField="Ucret" HeaderText="Ücret" SortExpression="Ucret" />
+        <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
+        <asp:BoundField DataField="AracPlaka" HeaderText="Nakliyeci'nin Plakası" />
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button ID="btnOnayla" runat="server" CommandName="Onayla" CommandArgument='<%# Eval("TeklifID") %>' Text="Onayla" Visible="false" />
+                <asp:Button ID="btnReddet" runat="server" CommandName="Reddet" CommandArgument='<%# Eval("TeklifID") %>' Text="Reddet" Visible="false" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
+               <!-- Teklif Paneli (Sayfanın uygun bir yerine ekleyin) -->
+<asp:Panel ID="pnlTeklif" runat="server" Visible="false" CssClass="modal-content" style="padding:20px; margin-top:20px; border:1px solid #ddd;">
+    <h4>Teklif Ver</h4>
+    <asp:Label ID="lblYukAdi" runat="server" Font-Bold="true"></asp:Label><br />
+    <asp:Label ID="lblYukDetay" runat="server"></asp:Label>
+    
+    <div class="form-group">
+        <label>Teklif Tutarı (₺)</label>
+        <asp:TextBox ID="txtTeklifTutar" runat="server" CssClass="form-control" TextMode="Number" step="0.01"></asp:TextBox>
+    </div>
+    
+<%--    <div class="form-group">
+        <asp:Button ID="btnTeklifGonder" runat="server" Text="Teklifi Gönder" 
+            CssClass="btn btn-primary" OnClick="btnTeklifGonder_Click" />
+        <asp:Button ID="btnVazgec" runat="server" Text="Vazgeç" 
+            CssClass="btn btn-secondary" OnClick="btnVazgec_Click" CausesValidation="false" />
+    </div>--%>
+</asp:Panel>
 </div>
+    </div>
+</main>
 
-            </div>
-        </div>
-    </main>
 </div>
 </form>
 </body>

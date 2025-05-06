@@ -18,45 +18,68 @@
     margin-top: 50px;
 }
 
-.card-row {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
+.offers-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.card-box {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.offer-card {
+    background: #fff;
+    border-left: 5px solid #4CAF50;
+    border-radius: 10px;
     padding: 20px;
-    width: 300px;
-    transition: all 0.3s ease;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
 }
 
-    .card-box:hover {
-        transform: scale(1.02);
+    .offer-card:hover {
+        transform: translateY(-3px);
     }
 
-    .card-box h4 {
-        margin-bottom: 10px;
-        font-weight: bold;
-        color: #333;
-    }
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2d2d2d;
+}
 
-    .card-box.load {
-        border-left: 5px solid #0d6efd; /* Mavi - Yükleme */
-        width: 300px;
-    }
+.offer-body p {
+    margin: 5px 0;
+    color: #555;
+}
 
-    .card-box.deliver {
-        border-left: 5px solid #198754; /* Yeşil - Teslimat */
-        width: 300px
-    }
+.empty-info {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
 
-    .card-box p {
-        margin: 5px 0;
-        font-size: 14px;
-    }
+.cars {
+    position: absolute;
+    width: 40%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--theme2);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cars:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
+}

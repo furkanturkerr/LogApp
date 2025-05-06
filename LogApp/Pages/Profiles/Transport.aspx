@@ -65,15 +65,14 @@
     <aside class="sidebar-a">
         <div class="profile-a">
             <div class="avatar">FT</div>
-            <h2>Furkan TÜRKER</h2>
-            <p>★★★★★</p>
+                <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
             <ul>
                 <li><a href="../Profiles/Profil.aspx">Anasayfa</a></li>
                 <li><a href="../Profiles/Cars.aspx">Araçlarım</a></li>
-                <li><a href="../Profiles/Offers.aspx">Teklifler</a></li>
-                <li><a href="../Profiles/Transport.aspx">Taşımalarım</a></li>
+                <li><a href="../Profiles/Offers.aspx">Yük İlanlarım</a></li>
+                <li><a href="../Profiles/Transport.aspx">Tekliflerim</a></li>
                 <li><a href="../Profiles/notifications.aspx">Bildirimler</a></li>
                 <li><a href="../Profiles/notifications.aspx">Mesajlar</a></li>
             </ul>
@@ -91,6 +90,24 @@
         <div class="header-aa">
             <div class="header-ic">
                 <a href="car.html" class="header-ic"></a>
+                <div class="container py-5">
+    <h2>Tekliflerim</h2>
+    <asp:Label ID="lblMesaj" runat="server" CssClass="alert alert-info" Visible="false"></asp:Label>
+    <asp:GridView ID="gvTekliflerim" runat="server" CssClass="table table-striped" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" />
+            <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" />
+            <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Şehri" />
+            <asp:BoundField DataField="Tarih" HeaderText="Yük Tarihi" DataFormatString="{0:dd.MM.yyyy}" />
+            <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
+            <asp:BoundField DataField="TeklifTarihi" HeaderText="Teklif Tarihi" DataFormatString="{0:dd.MM.yyyy HH:mm}" />
+            <asp:BoundField DataField="Durum" HeaderText="Durum" />
+        </Columns>
+                        <EmptyDataTemplate>
+                    <div class="alert alert-warning">Henüz hiç teklif yapmamışsınız.</div>
+                </EmptyDataTemplate>
+    </asp:GridView>
+</div>
             </div>
         </div>
     </main>

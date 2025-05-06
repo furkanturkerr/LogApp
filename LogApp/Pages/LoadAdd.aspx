@@ -14,34 +14,28 @@
     <link rel="stylesheet" href="../../Styles/color.css">
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="container mt-4">
-            <div class="header">
-                <h3>Yeni İlan Oluştur</h3>
-            </div>
-            <div class="card-custom">
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <label>Alım Tarihi</label>
-                        <asp:TextBox ID="txtAlimTarihi" runat="server" CssClass="form-control" placeholder="gg.aa.yyyy"></asp:TextBox>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Teslim Tarihi</label>
-                        <asp:TextBox ID="txtTeslimTarihi" runat="server" CssClass="form-control" placeholder="gg.aa.yyyy"></asp:TextBox>
-                    </div>
-                </div>
-
-                <hr />
-
-                <asp:Button ID="btnYuklemeEkle" runat="server" CssClass="btn btn-outline-primary mb-2" Text="+ Yükleme Noktası Ekle" OnClick="btnYuklemeEkle_Click" />
-                <asp:Button ID="btnTeslimatEkle" runat="server" CssClass="btn btn-outline-success mb-2" Text="+ Teslimat Noktası Ekle" OnClick="btnTeslimatEkle_Click" />
-
-                <asp:PlaceHolder ID="phYuklemeNoktalari" runat="server" />
-                <asp:PlaceHolder ID="phTeslimatNoktalari" runat="server" />
-
-                <asp:Button ID="btnDevamEt" runat="server" CssClass="btn btn-primary float-right" Text="Devam Et" OnClick="btnDevamEt_Click" />
-            </div>
-        </div>
+  <form id="form1" runat="server">
+        <h2>Yük Listesi</h2>
+        <asp:GridView ID="gvYukler" runat="server" AutoGenerateColumns="False" OnRowCommand="gvYukler_RowCommand">
+            <Columns>
+                <asp:BoundField DataField="YukID" HeaderText="ID" />
+                <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" />
+                <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" />
+                <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Şehir" />
+                <asp:BoundField DataField="Tarih" HeaderText="Tarih" DataFormatString="{0:dd.MM.yyyy}" />
+                <asp:BoundField DataField="AracTipi" HeaderText="Araç Tipi" />
+                <asp:BoundField DataField="Ucret" HeaderText="Ücret" />
+                <asp:TemplateField HeaderText="İşlem">
+                    <ItemTemplate>
+                        <asp:Button ID="btnTeklifVer" runat="server" 
+                                    Text="Teklif Ver" 
+                                    CommandName="TeklifVer" 
+                                    CommandArgument='<%# Eval("YukID") %>' 
+                                    Visible='<%# Eval("TeklifTutar") == DBNull.Value ? true : false %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </form>
 </body>
 </html>

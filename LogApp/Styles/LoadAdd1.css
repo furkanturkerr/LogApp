@@ -1,0 +1,119 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lugrasimo&family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --accent: #8b5cf6;
+    --bg-dark: #1e293b;
+    --input-bg: #334155;
+    --text-color: #e2e8f0;
+    --label-color: #94a3b8;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-image: url(Image/logina.jpg);
+}
+
+#form1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 15px;
+}
+
+.form-wrapper {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    color: var(--text-color);
+    margin-top: 60px;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: black;
+}
+
+.form-control {
+    width: 95%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background-color: white;
+    color: var(--theme);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        color: var(--theme);
+        border-color: #ff3726;
+    }
+
+.submit-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--theme2);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .submit-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
+    }
+
+.profil-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--theme2);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+    .profil-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
+    }
+
+.uyari {
+    color: var(--theme);
+}

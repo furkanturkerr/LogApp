@@ -11,7 +11,7 @@
         <div>
             Araç Adı<asp:TextBox ID="arac_ad_tb" runat="server"></asp:TextBox>
             <br />
-            Araç Marka<asp:DropDownList ID="marka_list" runat="server" AutoPostBack="True">
+            Araç Marka<asp:DropDownList ID="marka_list" runat="server" AutoPostBack="True" OnSelectedIndexChanged="marka_list_SelectedIndexChanged2">
                 <asp:ListItem>Marka Seçiniz</asp:ListItem>
             </asp:DropDownList>
             <br />

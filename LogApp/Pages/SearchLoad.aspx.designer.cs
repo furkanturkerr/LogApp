@@ -123,13 +123,40 @@ namespace LogApp.Pages
         protected global::System.Web.UI.WebControls.GridView gvYukler;
 
         /// <summary>
-        /// hfYukID control.
+        /// pnlTeklif control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfYukID;
+        protected global::System.Web.UI.WebControls.Panel pnlTeklif;
+
+        /// <summary>
+        /// lblYukAdi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYukAdi;
+
+        /// <summary>
+        /// lblYukDetay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYukDetay;
+
+        /// <summary>
+        /// ddlKullaniciAraclari control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlKullaniciAraclari;
 
         /// <summary>
         /// txtTeklifTutar control.
@@ -148,5 +175,14 @@ namespace LogApp.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTeklifGonder;
+
+        /// <summary>
+        /// btnVazgec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVazgec;
     }
 }

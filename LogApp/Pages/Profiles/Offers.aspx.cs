@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,104 +9,119 @@ namespace LogApp.Pages.Profiles
 {
     public partial class Offers : System.Web.UI.Page
     {
+        string connStr = ConfigurationManager.ConnectionStrings["LogAppDb"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+                YukleriGetir();
+        }
+
+        private void YukleriGetir()
+        {
+            string kullaniciTc = Session["User"]?.ToString();
+            if (string.IsNullOrEmpty(kullaniciTc))
             {
-                List<NoktaCifti> noktaCiftleri = GetNoktaCiftleri();
-                rptNoktalar.DataSource = noktaCiftleri;
-                rptNoktalar.DataBind();
+                Response.Redirect("../Login.aspx");
+                return;
+            }
+
+            // Bütün yükleri getiriyoruz, teklif verilmiş olup olmadığına bakacağız
+            using (SqlConnection con = new SqlConnection(connStr))
+            {
+                string query = @"
+                    SELECT 
+                        y.YukID, y.YukAdi, y.AlinacakSehir, y.TeslimEdilecekSehir, y.Tarih, y.AracTipi, y.Ucret,
+                        t.TeklifID, t.TeklifTutari, t.TeklifTarihi,t.AracPlaka, t.Durum
+                    FROM Yuklar y
+                    LEFT JOIN Teklifler t ON y.YukID = t.YukID
+                    WHERE y.tc = @tc";  // Bütün yükleri listeliyoruz
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@tc", kullaniciTc);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                gvTeklifler.DataSource = dt;
+                gvTeklifler.DataBind();
             }
         }
 
-        public class Nokta
+        protected void gvTeklifler_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            public string Tip { get; set; }
-            public string Isim { get; set; }
-            public string Telefon { get; set; }
-            public string Sehir { get; set; }
-            public string Mahalle { get; set; }
-            public string Sokak { get; set; }
-            public string Adres { get; set; }
-        }
+            int teklifID = Convert.ToInt32(e.CommandArgument);
 
-        public class NoktaCifti
-        {
-            public Nokta Yukleme { get; set; }
-            public Nokta Teslimat { get; set; }
-        }
-
-        private List<Nokta> GetNoktalar()
-        {
-            var list = new List<Nokta>();
-            string connectionString = "Data Source=.;Initial Catalog=LogApp;Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (e.CommandName == "Onayla")
             {
-                string query = "SELECT * FROM Noktalar ORDER BY Id"; // sıralama önemli olabilir
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    list.Add(new Nokta
-                    {
-                        Tip = reader["Tip"].ToString(),
-                        Isim = reader["Isim"].ToString(),
-                        Telefon = reader["Telefon"].ToString(),
-                        Sehir = reader["Sehir"].ToString(),
-                        Mahalle = reader["Mahalle"].ToString(),
-                        Sokak = reader["Sokak"].ToString(),
-                        Adres = reader["Adres"].ToString()
-                    });
+                    SqlCommand cmd = new SqlCommand("UPDATE Teklifler SET Durum = 'Onaylandi' WHERE TeklifID = @id", con);
+                    cmd.Parameters.AddWithValue("@id", teklifID);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
-
-                conn.Close();
             }
-
-            return list;
-        }
-
-        private List<NoktaCifti> GetNoktaCiftleri()
-        {
-            List<Nokta> noktalar = GetNoktalar();
-            List<NoktaCifti> ciftler = new List<NoktaCifti>();
-
-            for (int i = 0; i < noktalar.Count; i += 2)
+            else if (e.CommandName == "Reddet")
             {
-                var yukleme = noktalar[i];
-                var teslimat = (i + 1 < noktalar.Count) ? noktalar[i + 1] : null;
-
-                ciftler.Add(new NoktaCifti
+                using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    Yukleme = yukleme,
-                    Teslimat = teslimat
-                });
+                    SqlCommand cmd = new SqlCommand("UPDATE Teklifler SET Durum = 'Reddedildi' WHERE TeklifID = @id", con);
+                    cmd.Parameters.AddWithValue("@id", teklifID);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
 
-            return ciftler;
+            YukleriGetir(); // Sayfayı yenile
         }
 
+        protected void gvTeklifler_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string teklifID = DataBinder.Eval(e.Row.DataItem, "TeklifID")?.ToString();
+                Button btnOnayla = (Button)e.Row.FindControl("btnOnayla");
+                Button btnReddet = (Button)e.Row.FindControl("btnReddet");
+
+                // Eğer teklif verilmişse butonları göster
+                if (!string.IsNullOrEmpty(teklifID))
+                {
+                    btnOnayla.Visible = true;
+                    btnReddet.Visible = true;
+                }
+                else
+                {
+                    btnOnayla.Visible = false;
+                    btnReddet.Visible = false;
+                }
+            }
+        }
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Profiles/Profil.aspx");
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("../Login.aspx");
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Register.aspx");
+            Response.Redirect("../Register.aspx");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session.Abandon(); // Oturumu sonlandır
-            Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
+            Session.Abandon();
+            Response.Redirect("../Login.aspx");
+        }
+
+        protected void btnyuk_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../LoadAdd1.aspx");
         }
     }
 }

@@ -4,12 +4,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Security.Cryptography;
 using System.Text;
+using System.Configuration;
+using System.Data;
 
 public class DatabaseHelper
 {
     private readonly string connectionString = "Data Source=.;Initial Catalog=LogApp;Integrated Security=True";
-
-
     public bool KullaniciVarMi(string tc)
     {
         string sqlCheck = "SELECT COUNT(*) FROM uyeler WHERE TC=@tc";
@@ -127,7 +127,8 @@ public class DatabaseHelper
             }
         }
     }
-    private string ComputeMD5Hash(string input)
+
+        private string ComputeMD5Hash(string input)
     {
         using (MD5 md5 = MD5.Create())
         {

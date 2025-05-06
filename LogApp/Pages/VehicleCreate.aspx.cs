@@ -187,5 +187,15 @@ namespace LogApp
                 }
             }
         }
+
+        protected void marka_list_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void marka_list_SelectedIndexChanged2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

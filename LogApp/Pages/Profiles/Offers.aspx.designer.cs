@@ -51,6 +51,15 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Button btnProfile;
 
         /// <summary>
+        /// kullaniciad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label kullaniciad;
+
+        /// <summary>
         /// btnLogout control.
         /// </summary>
         /// <remarks>
@@ -60,12 +69,57 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
-        /// rptNoktalar control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptNoktalar;
+        protected global::System.Web.UI.WebControls.Button Button2;
+
+        /// <summary>
+        /// gvTeklifler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTeklifler;
+
+        /// <summary>
+        /// pnlTeklif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlTeklif;
+
+        /// <summary>
+        /// lblYukAdi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYukAdi;
+
+        /// <summary>
+        /// lblYukDetay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYukDetay;
+
+        /// <summary>
+        /// txtTeklifTutar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTeklifTutar;
     }
 }

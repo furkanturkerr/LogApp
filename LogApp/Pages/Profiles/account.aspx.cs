@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace LogApp.Pages.Profiles
     public partial class account : System.Web.UI.Page
     {
         private DatabaseHelper dbHelper = new DatabaseHelper();
+
+        string connStr = ConfigurationManager.ConnectionStrings["LogAppDb"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) // Sayfa ilk kez yükleniyorsa çalıştır
@@ -26,6 +30,26 @@ namespace LogApp.Pages.Profiles
                     Response.Redirect("../Login.aspx"); // Oturum yoksa giriş sayfasına yönlendir
                 }
             }
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string tc = (string)Session["User"];
+                SqlCommand cmd = new SqlCommand("SELECT ad, soyad FROM uyeler where tc=@tc", conn);
+                cmd.Parameters.AddWithValue("@tc", tc);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string ad = reader["ad"].ToString();
+                        string soyad = reader["soyad"].ToString();
+
+                        kullaniciad.Text = ad + " " + soyad;
+                    }
+                }
+                conn.Close();
+            }
         }
 
         private void KullaniciBilgileriniDoldur(string tc)
@@ -37,7 +61,7 @@ namespace LogApp.Pages.Profiles
                 reader.Read();
                 txtAd.Text = reader["Ad"].ToString();
                 txtSoyad.Text = reader["Soyad"].ToString();
-                txtPlaka.Text = reader["Plaka"].ToString();
+                //txtPlaka.Text = reader["Plaka"].ToString();
                 txtAdres.Text = reader["Adres"].ToString();
             }
 

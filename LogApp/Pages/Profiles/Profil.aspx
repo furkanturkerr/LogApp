@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="../../Styles/color.css">
     <link rel="stylesheet" href="Css/Profile.css">
 </head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <style>
+        .swiper {
+            width: 100%;
+            height: 500px;
+            margin-top: -50px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+       .panel-title {
+           position: absolute;
+       }
+    </style>
 <body>
         <form id="form1" runat="server" class="container">
                 <header class="header">
@@ -40,10 +58,10 @@
                     <a href="car.aspx" class="header-icon"></a>
                 </div>
                 <div class="header-link">
-                    <a href="../MainPage.aspx">Anasayfa</a>
-                    <a href="About.aspx">Hakkımızda</a>
-                    <a href="SearchLoad.aspx">Yük Arıyorum</a>
-                    <a href="Contact.aspx">İletişim</a>
+               <a href="../MainPage.aspx">Anasayfa</a>
+               <a href="../About.aspx">Hakkımızda</a>
+             <a href="../SearchLoad.aspx">Yük Arıyorum</a>
+             <a href="../Contact.aspx">İletişim</a>   
                 </div>
                 <div class="header-login">
                     <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" Visible="false"/>
@@ -64,7 +82,7 @@
         <!-- Sol Yan Menü -->
         <aside class="sidebar-a">
             <div class="profile-a">
-                <div class="avatar">FT</div>
+                <div id="avatar" runat="server" class="avatar"></div>
                 <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
             </div>
             <nav class="menu-a">
@@ -88,10 +106,40 @@
         <!-- Sağ İçerik Alanı -->
         <main class="content-a">
             <div class="header-aa">
+                <h2 class="panel-title">Anasayfa</h2>
                 <div class="header-ic">
-                    <a href="car.html" class="header-ic"></a>
-                </div>
+                                    </div>
             </div>
+                    <a href="car.html" class="header-ic"></a>
+                        <div class="swiper">
+            <div class="swiper-wrapper">
+<asp:Repeater ID="rptSlider" runat="server">
+    <ItemTemplate>
+        <div class="swiper-slide">
+            <img src='<%# ResolveUrl(Eval("ImageUrl").ToString()) %>' alt="Tır Görseli" />
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
+            </div>
+            <!-- Alt nokta geçişleri -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swiper', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                }
+            });
+        </script>
+
         </main>
     </div>
     </form>

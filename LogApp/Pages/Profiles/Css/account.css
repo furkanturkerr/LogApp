@@ -19,7 +19,7 @@ main {
 }
 
 /* Logo */
-.header-logo {
+.header-logoo {
     display: block;
     text-align: center;
     font-size: 18px;
@@ -29,69 +29,82 @@ main {
     margin-bottom: 20px;
 }
 
-/* Form alanı */
-.form-container {
+.header-ic {
+    width: 100%;
+    height: 100px;
+    background-image: url(../../images/loga.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    align-items: center;
+    cursor: pointer;
 }
 
-/* Form grupları */
-.form-group {
+.profile-containerr {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 100%
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #4e73df;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.textbox {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.button {
+    width: 100%;
+    background-color: #4e73df;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .button:hover {
+        background-color: #2e59d9;
+    }
+
+.message {
+    text-align: center;
+    color: green;
     margin-bottom: 15px;
 }
-
-/* Label */
-.label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* Textbox */
-.textbox {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Buton grubu */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Butonlar */
-.button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-    /* Kaydet Butonu */
-    .button:first-child {
-        background-color: #28a745;
-        color: white;
-        margin-right: 10px;
-    }
-
-        .button:first-child:hover {
-            background-color: #218838;
-        }
-
-/* Temizle Butonu */
-.button-reset {
-    background-color: #dc3545;
-    color: white;
-}
-
-    .button-reset:hover {
-        background-color: #c82333;
-    }

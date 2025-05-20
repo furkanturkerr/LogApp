@@ -1,48 +1,69 @@
-﻿using System;
+﻿using LogApp.Pages.Profiles;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static LogApp.Pages.Profiles.Offers;
 
 namespace LogApp.Pages
 {
     public partial class Profil : System.Web.UI.Page
     {
         string connStr = ConfigurationManager.ConnectionStrings["LogAppDb"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            using (SqlConnection conn = new SqlConnection(connStr))
+            if (!IsPostBack)
             {
-                string tc = (string)Session["User"];
-                SqlCommand cmd = new SqlCommand("SELECT ad, soyad FROM uyeler where tc=@tc", conn);
-                cmd.Parameters.AddWithValue("@tc",tc);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                var data = new List<Slide>
                 {
-                    while (reader.Read())
+                    new Slide { ImageUrl = "~/Styles/Image/1.jpg" },
+                    new Slide { ImageUrl = "~/Styles/Image/2.jpg" }
+                };
+
+                rptSlider.DataSource = data;
+                rptSlider.DataBind();
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    string tc = (string)Session["User"];
+                    SqlCommand cmd = new SqlCommand("SELECT ad, soyad FROM uyeler WHERE tc = @tc", conn);
+                    cmd.Parameters.AddWithValue("@tc", tc);
+
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        string ad = reader["ad"].ToString();
-                        string soyad = reader["soyad"].ToString();
+                        while (reader.Read())
+                        {
+                            string ad = reader["ad"].ToString();
+                            string soyad = reader["soyad"].ToString();
 
-                        kullaniciad.Text = ad + " " + soyad;
+                            kullaniciad.Text = $"{ad} {soyad}";
+
+                            // Avatar için baş harf
+                            string basHarf = $"{ad[0]}{soyad[0]}".ToUpper();
+                            avatar.InnerText = basHarf;
+                        }
                     }
-                }
-                conn.Close();
-            }
 
+                    conn.Close();
+                }
+            }
+        }
+
+        public class Slide
+        {
+            public string ImageUrl { get; set; }
         }
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Profiles/Profil.aspx");
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
@@ -55,9 +76,8 @@ namespace LogApp.Pages
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session.Abandon(); // Oturumu sonlandır
-            Response.Redirect("../Login.aspx"); // Giriş sayfasına yönlendir
+            Session.Abandon();
+            Response.Redirect("../Login.aspx");
         }
-
     }
 }

@@ -51,6 +51,15 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Button btnProfile;
 
         /// <summary>
+        /// avatar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl avatar;
+
+        /// <summary>
         /// kullaniciad control.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,31 @@ namespace LogApp.Pages.Profiles
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtPlaka control.
+        /// txttel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaka;
+        protected global::System.Web.UI.WebControls.TextBox txttel;
+
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// txtmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtmail;
 
         /// <summary>
         /// Label4 control.

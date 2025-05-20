@@ -11,7 +11,7 @@ namespace LogApp.Pages
 {
 
 
-    public partial class Profil
+    public partial class About
     {
 
         /// <summary>
@@ -49,41 +49,5 @@ namespace LogApp.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnProfile;
-
-        /// <summary>
-        /// avatar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl avatar;
-
-        /// <summary>
-        /// kullaniciad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label kullaniciad;
-
-        /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
-
-        /// <summary>
-        /// rptSlider control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptSlider;
     }
 }

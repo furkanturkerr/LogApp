@@ -40,7 +40,7 @@ namespace LogApp
             string soyad = lastNameInput.Text.Trim();
             string adres = addressInput.Text.Trim();
             string sifre = passwordInput.Text.Trim();
-            string plaka = plakaInput.Text.Trim();
+            string telefon = phoneInput.Text.Trim();
 
             string durum = "";
 
@@ -73,7 +73,7 @@ namespace LogApp
             }
 
 
-            bool kayitBasarili = dbHelper.KullaniciEkle(tc, durum, ad, soyad, plaka, adres, sifre);
+            bool kayitBasarili = dbHelper.KullaniciEkle(tc, durum, ad, soyad, telefon, adres, sifre);
 
             if (kayitBasarili)
             {

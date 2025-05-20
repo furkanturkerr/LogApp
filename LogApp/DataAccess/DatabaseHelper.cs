@@ -49,9 +49,9 @@ public class DatabaseHelper
     }
 
     // Kullanıcı ekleme metodu
-    public bool KullaniciEkle(string tc, string durum, string ad, string soyad, string plaka, string adres, string sifre)
+    public bool KullaniciEkle(string tc, string durum, string ad, string soyad, string telefon, string adres, string sifre)
     {
-        string sqlInsert = "INSERT INTO uyeler (TC, Durum, Ad, Soyad, Plaka, Sifre, Adres) VALUES (@tc, @durum, @ad, @soyad, @plaka, @sifre, @adres)";
+        string sqlInsert = "INSERT INTO uyeler (TC, Durum, Ad, Soyad, tel, Sifre, Adres) VALUES (@tc, @durum, @ad, @soyad, @tel, @sifre, @adres)";
         string guvenliSifre = ComputeMD5Hash(sifre);
 
         using (SqlConnection conn = new SqlConnection(connectionString))
@@ -63,7 +63,7 @@ public class DatabaseHelper
                 cmd.Parameters.AddWithValue("@durum", durum);
                 cmd.Parameters.AddWithValue("@ad", ad);
                 cmd.Parameters.AddWithValue("@soyad", soyad);
-                cmd.Parameters.AddWithValue("@plaka", plaka);
+                cmd.Parameters.AddWithValue("@tel", telefon);
                 cmd.Parameters.AddWithValue("@sifre", guvenliSifre);
                 cmd.Parameters.AddWithValue("@adres", adres);
                 
@@ -107,9 +107,9 @@ public class DatabaseHelper
     }
 
     // Kullanıcı BİLGİLERİNİ GÜNCELLEME
-    public bool KullaniciBilgileriniGuncelle(string tc, string ad, string soyad, string plaka, string adres)
+    public bool KullaniciBilgileriniGuncelle(string tc, string ad, string soyad, string tel, string mail, string adres)
     {
-        string query = "UPDATE uyeler SET Ad=@ad, Soyad=@soyad, Plaka=@plaka, Adres=@adres WHERE TC=@tc";
+        string query = "UPDATE uyeler SET Ad=@ad, Soyad=@soyad, tel=@tel, mail=@mail, Adres=@adres WHERE TC=@tc";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -118,7 +118,8 @@ public class DatabaseHelper
                 command.Parameters.AddWithValue("@tc", tc);
                 command.Parameters.AddWithValue("@ad", ad);
                 command.Parameters.AddWithValue("@soyad", soyad);
-                command.Parameters.AddWithValue("@plaka", plaka);
+                command.Parameters.AddWithValue("@tel", tel);
+                command.Parameters.AddWithValue("@mail",mail);
                 command.Parameters.AddWithValue("@adres", adres);
 
                 connection.Open();

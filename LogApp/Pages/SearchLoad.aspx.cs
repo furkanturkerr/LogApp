@@ -88,7 +88,7 @@ namespace LogApp.Pages
         {
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Yuklar", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Yuklar where durum = 'aktif' ", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -102,7 +102,7 @@ namespace LogApp.Pages
         {
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                string query = "SELECT * FROM Yuklar WHERE 1=1";
+                string query = "SELECT * FROM Yuklar WHERE 1=1 and durum = 'aktif' ";
                 if (!string.IsNullOrEmpty(ddlAlinacakSehir.SelectedValue))
                     query += " AND AlinacakSehir = @AlinacakSehir";
                 if (!string.IsNullOrEmpty(ddlTeslimSehir.SelectedValue))
@@ -155,13 +155,15 @@ namespace LogApp.Pages
             }
 
             string tc = Session["User"].ToString();
+            int yukID = Convert.ToInt32(ViewState["YukID"]);
             string connStr = ConfigurationManager.ConnectionStrings["LogAppDb"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                string query = "SELECT arac_plaka, arac_marka, arac_model FROM araclar WHERE tc=@tc";
+                string query = "SELECT arac_plaka, arac_marka, arac_model FROM araclar WHERE tc=@tc and arac_tipi in(select AracTipi from Yuklar Where YukID = @YukID)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@tc", tc);
+                cmd.Parameters.AddWithValue("@YukID", yukID);
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -207,7 +209,7 @@ namespace LogApp.Pages
 
                 using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM Yuklar WHERE YukID=@YukID", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Yuklar WHERE YukID=@YukID ", con);
                     cmd.Parameters.AddWithValue("@YukID", yukID);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -240,7 +242,7 @@ namespace LogApp.Pages
                     }
 
                     int yukID = Convert.ToInt32(ViewState["YukID"]);
-                    int kullaniciID = Convert.ToInt32(Session["KullaniciID"]);
+                    string kullaniciID = Session["User"]?.ToString();
                     decimal teklifTutari = Convert.ToDecimal(txtTeklifTutar.Text);
                     string aracPlaka = ddlKullaniciAraclari.SelectedValue;
 

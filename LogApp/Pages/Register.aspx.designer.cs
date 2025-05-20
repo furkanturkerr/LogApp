@@ -69,13 +69,13 @@ namespace LogApp
         protected global::System.Web.UI.WebControls.TextBox lastNameInput;
 
         /// <summary>
-        /// plakaInput control.
+        /// phoneInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox plakaInput;
+        protected global::System.Web.UI.WebControls.TextBox phoneInput;
 
         /// <summary>
         /// passwordInput control.

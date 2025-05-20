@@ -15,7 +15,10 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    margin-top: 50px;
+}
+
+.header-aa{
+    padding: 50px;
 }
 
 .offers-section {
@@ -79,7 +82,90 @@
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.cars:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 92, 181, 0.4);
+
+/* Modern Table */
+.right-panel {
+    width: 100%;
+    height: 100%;
 }
+
+.modern-table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+    .modern-table th, .modern-table td {
+        padding: 7px 10px;
+        text-align: center;
+        font-size: 10px;
+        vertical-align: middle;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .modern-table th {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .modern-table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .modern-table tbody tr:hover {
+        background-color: #e2f3ff;
+        transform: scale(1.02);
+        transition: 0.3s ease-in-out;
+    }
+
+    .modern-table td, .modern-table th {
+        border: none !important;
+    }
+
+    /* Buton Stil */
+    .modern-table .btn {
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .modern-table .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+    .modern-table .btn-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .modern-table .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+.panel-title{
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-size: 2rem;
+}
+
+/* Responsive (Mobil Uyumlu) */
+@media (max-width: 768px) {
+    .modern-table th, .modern-table td {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
+
+
+

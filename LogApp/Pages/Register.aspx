@@ -34,7 +34,7 @@
                     <asp:TextBox ID="lastNameInput" runat="server" placeholder="Soyadınızı Girin" required></asp:TextBox>
                 </div>
                 <div class="input-group">
-                    <asp:TextBox ID="plakaInput" runat="server" placeholder="Plakanızı Girin" required></asp:TextBox>
+                    <asp:TextBox ID="phoneInput" runat="server" placeholder="Telefon Girin" required></asp:TextBox>
                 </div>
                 <div class="input-group">
                     <asp:TextBox ID="passwordInput" runat="server" TextMode="Password" placeholder="Şifre Belirleyin" required></asp:TextBox>

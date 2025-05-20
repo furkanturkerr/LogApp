@@ -33,15 +33,6 @@ namespace LogApp.Pages
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// tcTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tcTextBox;
-
-        /// <summary>
         /// aracAdTextBox control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace LogApp.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox aracYilTextBox;
+
+        /// <summary>
+        /// ddlAracTipi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAracTipi;
 
         /// <summary>
         /// aracPlakaTextBox control.

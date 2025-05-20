@@ -23,12 +23,13 @@ namespace LogApp.Pages
 
         protected void AddCarButton_Click(object sender, EventArgs e)
         {
-            string tc = tcTextBox.Text.Trim();
+            string tc = Session["user"].ToString();
             string aracAd = aracAdTextBox.Text.Trim();
             string aracMarka = aracMarkaTextBox.Text.Trim();
             string aracSeri = aracSeriTextBox.Text.Trim();
             string aracModel = aracModelTextBox.Text.Trim();
             string aracYil = aracYilTextBox.Text.Trim();
+            string aractipi = ddlAracTipi.SelectedValue;
             string aracPlaka = aracPlakaTextBox.Text.Trim();
 
         
@@ -59,8 +60,8 @@ namespace LogApp.Pages
                         else
                         {
                             
-                            string insertQuery = "INSERT INTO araclar (tc, arac_ad, arac_marka, arac_seri, arac_model, arac_yil, arac_plaka) " +
-                                                 "VALUES (@tc, @arac_ad, @arac_marka, @arac_seri, @arac_model, @arac_yil, @arac_plaka)";
+                            string insertQuery = "INSERT INTO araclar (tc, arac_ad, arac_marka, arac_seri, arac_model, arac_yil, arac_tipi, arac_plaka) " +
+                                                 "VALUES (@tc, @arac_ad, @arac_marka, @arac_seri, @arac_model, @arac_yil, @arac_tipi, @arac_plaka)";
 
                             SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
                             insertCommand.Parameters.AddWithValue("@tc", tc);
@@ -69,6 +70,7 @@ namespace LogApp.Pages
                             insertCommand.Parameters.AddWithValue("@arac_seri", aracSeri);
                             insertCommand.Parameters.AddWithValue("@arac_model", aracModel);
                             insertCommand.Parameters.AddWithValue("@arac_yil", aracYil);
+                            insertCommand.Parameters.AddWithValue("@arac_tipi", aractipi);
                             insertCommand.Parameters.AddWithValue("@arac_plaka", aracPlaka);
 
                             int rowsAffected = insertCommand.ExecuteNonQuery();

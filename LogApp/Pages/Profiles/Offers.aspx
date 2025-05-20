@@ -42,10 +42,10 @@
                 <a href="car.aspx" class="header-icon"></a>
             </div>
             <div class="header-link">
-                <a href="../MainPage.aspx">Anasayfa</a>
-                <a href="About.aspx">Hakkımızda</a>
-                <a href="SearchLoad.aspx">Yük Arıyorum</a>
-                <a href="Contact.aspx">İletişim</a>
+               <a href="../MainPage.aspx">Anasayfa</a>
+               <a href="../About.aspx">Hakkımızda</a>
+             <a href="../SearchLoad.aspx">Yük Arıyorum</a>
+             <a href="../Contact.aspx">İletişim</a>  
             </div>
             <div class="header-login">
                 <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" Visible="false"/>
@@ -66,7 +66,7 @@
     <!-- Sol Yan Menü -->
     <aside class="sidebar-a">
         <div class="profile-a">
-            <div class="avatar">FT</div>
+            <div id="avatar" runat="server" class="avatar"></div>
                 <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
@@ -91,54 +91,64 @@
 <main class="content-a">
     <div class="header-aa">
         <asp:Button ID="Button2" runat="server" Text="Yük Ekle" CssClass="cars" OnClick="btnyuk_Click" />
-        
-<div class="header-ic">
-                <a href="offers.html" class="header-ic"></a>
-           <!-- Yük Listesi -->
-  <h3>Teklifler</h3>
-
-<asp:GridView ID="gvTeklifler" runat="server" AutoGenerateColumns="False" 
-              OnRowCommand="gvTeklifler_RowCommand" 
-              OnRowDataBound="gvTeklifler_RowDataBound" 
-              CssClass="table table-striped">
-    <Columns>
-        <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" SortExpression="YukAdi" />
-        <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" SortExpression="AlinacakSehir" />
-        <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Edilecek Şehir" SortExpression="TeslimEdilecekSehir" />
-        <asp:BoundField DataField="Tarih" HeaderText="Tarih" SortExpression="Tarih" />
-        <asp:BoundField DataField="Ucret" HeaderText="Ücret" SortExpression="Ucret" />
-        <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
-        <asp:BoundField DataField="AracPlaka" HeaderText="Nakliyeci'nin Plakası" />
-        <asp:TemplateField>
-            <ItemTemplate>
-                <asp:Button ID="btnOnayla" runat="server" CommandName="Onayla" CommandArgument='<%# Eval("TeklifID") %>' Text="Onayla" Visible="false" />
-                <asp:Button ID="btnReddet" runat="server" CommandName="Reddet" CommandArgument='<%# Eval("TeklifID") %>' Text="Reddet" Visible="false" />
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
-
-               <!-- Teklif Paneli (Sayfanın uygun bir yerine ekleyin) -->
-<asp:Panel ID="pnlTeklif" runat="server" Visible="false" CssClass="modal-content" style="padding:20px; margin-top:20px; border:1px solid #ddd;">
-    <h4>Teklif Ver</h4>
-    <asp:Label ID="lblYukAdi" runat="server" Font-Bold="true"></asp:Label><br />
-    <asp:Label ID="lblYukDetay" runat="server"></asp:Label>
-    
-    <div class="form-group">
-        <label>Teklif Tutarı (₺)</label>
-        <asp:TextBox ID="txtTeklifTutar" runat="server" CssClass="form-control" TextMode="Number" step="0.01"></asp:TextBox>
     </div>
-    
-<%--    <div class="form-group">
-        <asp:Button ID="btnTeklifGonder" runat="server" Text="Teklifi Gönder" 
-            CssClass="btn btn-primary" OnClick="btnTeklifGonder_Click" />
-        <asp:Button ID="btnVazgec" runat="server" Text="Vazgeç" 
-            CssClass="btn btn-secondary" OnClick="btnVazgec_Click" CausesValidation="false" />
-    </div>--%>
-</asp:Panel>
-</div>
+
+    <div class="header-ic">
+        <a href="offers.html" class="header-ic"></a>
+
+        <div class="right-panel">
+            <div class="panel-title">Teklifler</div>
+
+            <div class="gridviev">
+                 <asp:GridView ID="gvTeklifler" runat="server" AutoGenerateColumns="False"
+                     CssClass="table table-striped table-hover modern-table"
+                     OnRowCommand="gvTeklifler_RowCommand"
+                     OnRowDataBound="gvTeklifler_RowDataBound">
+                     <Columns>
+                         <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" />
+                         <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" />
+                         <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Edilecek Şehir" />
+                         <asp:BoundField DataField="Tarih" HeaderText="Tarih" />
+                         <asp:BoundField DataField="Ucret" HeaderText="Ücret" />
+                         <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
+                         <asp:BoundField DataField="AracPlaka" HeaderText="Nakliyeci'nin Plakası" />
+                         <asp:BoundField DataField="KullaniciID" HeaderText="Nakliyeci'nin Tc" />
+                         <asp:BoundField DataField="tel" HeaderText="İletişim" />
+                         <asp:BoundField DataField="Durum" HeaderText="Durum" />
+
+                         <asp:TemplateField HeaderText="İşlem">
+                             <ItemTemplate>
+                                 <asp:Button ID="btnOnayla" runat="server" CssClass="btn btn-success" CommandName="Onayla" CommandArgument='<%# Eval("TeklifID") %>' Text="Onayla" Visible="false" />
+                                 <asp:Button ID="btnReddet" runat="server" CssClass="btn btn-danger" CommandName="Reddet" CommandArgument='<%# Eval("TeklifID") %>' Text="Reddet" Visible="false" />
+                             </ItemTemplate>
+                         </asp:TemplateField>
+
+                         <asp:TemplateField HeaderText="iptal">
+                            <ItemTemplate>
+                                <asp:Button ID="btniptal" runat="server" CssClass="btn btn-danger" CommandName="iptal" CommandArgument='<%# Eval("YukID") %>' Text="İptal" Visible="true" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                     </Columns>
+                 </asp:GridView>
+            </div>
+           
+        </div>
+
+        <asp:Panel ID="pnlTeklif" runat="server" Visible="false" CssClass="modal-content"
+            style="padding: 20px; margin-top: 20px; border: 1px solid #ddd;">
+            <h4>Teklif Ver</h4>
+            <asp:Label ID="lblYukAdi" runat="server" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="lblYukDetay" runat="server"></asp:Label>
+
+            <div class="form-group">
+                <label>Teklif Tutarı (₺)</label>
+                <asp:TextBox ID="txtTeklifTutar" runat="server" CssClass="form-control" TextMode="Number" step="0.01"></asp:TextBox>
+            </div>
+        </asp:Panel>
     </div>
 </main>
+
+
 
 </div>
 </form>

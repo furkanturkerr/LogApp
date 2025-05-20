@@ -40,10 +40,10 @@
                 <a href="car.aspx" class="header-icon"></a>
             </div>
             <div class="header-link">
-                <a href="../MainPage.aspx">Anasayfa</a>
-                <a href="About.aspx">Hakkımızda</a>
-                <a href="SearchLoad.aspx">Yük Arıyorum</a>
-                <a href="Contact.aspx">İletişim</a>
+               <a href="../MainPage.aspx">Anasayfa</a>
+               <a href="../About.aspx">Hakkımızda</a>
+             <a href="../SearchLoad.aspx">Yük Arıyorum</a>
+             <a href="../Contact.aspx">İletişim</a>  
             </div>
             <div class="header-login">
                 <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" Visible="false"/>
@@ -64,7 +64,7 @@
     <!-- Sol Yan Menü -->
     <aside class="sidebar-a">
         <div class="profile-a">
-            <div class="avatar">FT</div>
+            <div id="avatar" runat="server" class="avatar"></div>
                 <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">

@@ -60,22 +60,22 @@ namespace LogApp.Pages
         protected global::System.Web.UI.WebControls.TextBox TeslimEdilecekSehirTextBox;
 
         /// <summary>
-        /// TarihTextBox control.
+        /// txtTarih control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TarihTextBox;
+        protected global::System.Web.UI.WebControls.TextBox txtTarih;
 
         /// <summary>
-        /// AracTipiTextBox control.
+        /// ddlAracTipi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AracTipiTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAracTipi;
 
         /// <summary>
         /// YukAdiTextBox control.

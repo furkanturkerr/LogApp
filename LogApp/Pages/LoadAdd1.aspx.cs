@@ -26,7 +26,7 @@ namespace LogApp.Pages
             string A_sehir = AlınacakSehirTextBox.Text.Trim();
             string T_sehir = TeslimEdilecekSehirTextBox.Text.Trim();
              //tarih = TarihTextBox.Text.Trim();
-            string aractipi = AracTipiTextBox.Text.Trim();
+            string aractipi = ddlAracTipi.SelectedValue;
             string YukAdi = YukAdiTextBox.Text.Trim();
             string fiyat = FiyatTextBox.Text.Trim();
 
@@ -57,14 +57,14 @@ namespace LogApp.Pages
                         else
                         {
 
-                            string insertQuery = "INSERT INTO Yuklar (tc, AlinacakSehir, TeslimEdilecekSehir, Tarih, AracTipi, YukAdi, Ucret) " +
-                                                 "VALUES (@tc, @AlinacakSehir, @TeslimEdilecekSehir, @Tarih, @AracTipi, @YukAdi, @Ucret)";
-
+                            string insertQuery = "INSERT INTO Yuklar (tc, AlinacakSehir, TeslimEdilecekSehir, Tarih, AracTipi, YukAdi, Ucret, durum) " +
+                                                 "VALUES (@tc, @AlinacakSehir, @TeslimEdilecekSehir, @Tarih, @AracTipi, @YukAdi, @Ucret, 'aktif')";
+                                
                             SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
                             insertCommand.Parameters.AddWithValue("@tc", tc);
                             insertCommand.Parameters.AddWithValue("@AlinacakSehir", A_sehir);
                             insertCommand.Parameters.AddWithValue("@TeslimEdilecekSehir", T_sehir);
-                            insertCommand.Parameters.AddWithValue("@Tarih", TarihTextBox.Text);
+                            insertCommand.Parameters.AddWithValue("@Tarih", txtTarih.Text);
                             insertCommand.Parameters.AddWithValue("@AracTipi", aractipi);
                             insertCommand.Parameters.AddWithValue("@YukAdi", YukAdi);
                             insertCommand.Parameters.AddWithValue("@Ucret", fiyat);

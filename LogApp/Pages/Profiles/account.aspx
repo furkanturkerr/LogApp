@@ -41,10 +41,10 @@
                 <a href="car.aspx" class="header-icon"></a>
             </div>
             <div class="header-link">
-                <a href="../MainPage.aspx">Anasayfa</a>
-                <a href="About.aspx">Hakkımızda</a>
-                <a href="SearchLoad.aspx">Yük Arıyorum</a>
-                <a href="Contact.aspx">İletişim</a>
+               <a href="../MainPage.aspx">Anasayfa</a>
+               <a href="../About.aspx">Hakkımızda</a>
+             <a href="../SearchLoad.aspx">Yük Arıyorum</a>
+             <a href="../Contact.aspx">İletişim</a>  
             </div>
             <div class="header-login">
                 <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" Visible="false"/>
@@ -65,7 +65,7 @@
     <!-- Sol Yan Menü -->
     <aside class="sidebar-a">
         <div class="profile-a">
-            <div class="avatar">FT</div>
+            <div id="avatar" runat="server" class="avatar"></div>
                 <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
@@ -89,35 +89,40 @@
     <!-- Sağ İçerik Alanı -->
     <main class="content-a">
         <div class="header-aa">
-            <a href="car.html" class="header-logo">🚗 Hesabım</a>
+            <a href="car.html" class="header-logoo">🚗 Hesabım</a>
         </div>
         <div class="header-ic">
-            <div class="form-container">
-                <asp:Label ID="lblMessage" runat="server" CssClass="message"></asp:Label>
+           <div class="profile-containerr">
 
-                <div class="form-group">
-                    <asp:Label ID="Label1" runat="server" Text="Ad: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtAd" runat="server" CssClass="textbox" Enabled="true"></asp:TextBox>
-                </div>
+            <asp:Label ID="lblMessage" runat="server" CssClass="message" />
 
-                <div class="form-group">
-                    <asp:Label ID="Label2" runat="server" Text="Soyad: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtSoyad" runat="server" CssClass="textbox"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
-                    <asp:Label ID="Label3" runat="server" Text="Plaka: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtPlaka" runat="server" CssClass="textbox"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
-                    <asp:Label ID="Label4" runat="server" Text="Adres: " CssClass="label"></asp:Label>
-                    <asp:TextBox ID="txtAdres" runat="server" CssClass="textbox"></asp:TextBox>
-                </div>
-
-                <asp:Button ID="btnSubmit" runat="server" Text="Güncelle" CssClass="button" OnClick="btnSubmit_Click" />
-
+            <div class="form-group">
+                <asp:Label ID="Label1" runat="server" Text="Ad:" CssClass="label" />
+                <asp:TextBox ID="txtAd" runat="server" CssClass="textbox" />
             </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label2" runat="server" Text="Soyad:" CssClass="label" />
+                <asp:TextBox ID="txtSoyad" runat="server" CssClass="textbox" />
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label3" runat="server" Text="Telefon:" CssClass="label" />
+                <asp:TextBox ID="txttel" runat="server" CssClass="textbox" />
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label5" runat="server" Text="E-Posta:" CssClass="label" />
+                <asp:TextBox ID="txtmail" runat="server" CssClass="textbox" />
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="Label4" runat="server" Text="Adres:" CssClass="label" />
+                <asp:TextBox ID="txtAdres" runat="server" CssClass="textbox" />
+            </div>
+
+            <asp:Button ID="btnSubmit" runat="server" Text="Güncelle" CssClass="button" OnClick="btnSubmit_Click" />
+        </div>
         </div>
     </main>
 

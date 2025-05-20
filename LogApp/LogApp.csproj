@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mongocrypt.dll" />
+    <Content Include="Pages\About.aspx" />
     <Content Include="Pages\Cargo.aspx" />
     <Content Include="Pages\CargoAdd.aspx" />
     <Content Include="Pages\LoadAdd1.aspx" />
@@ -194,6 +195,8 @@
     <Content Include="Pages\VehicleCreate.aspx" />
     <Content Include="Styles\caradd.css" />
     <Content Include="Styles\color.css" />
+    <Content Include="Styles\Image\1.jpg" />
+    <Content Include="Styles\Image\2.jpg" />
     <Content Include="Styles\Image\tir.jpeg" />
     <Content Include="Styles\loadadd.css" />
     <Content Include="Styles\LoadAdd1.css" />
@@ -209,6 +212,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\DatabaseHelper.cs" />
+    <Compile Include="Pages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

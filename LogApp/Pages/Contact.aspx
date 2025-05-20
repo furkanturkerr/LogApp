@@ -40,10 +40,10 @@
              <a href="car.aspx" class="header-icon"></a>
          </div>
          <div class="header-link">
-             <a href="MainPage.aspx">Anasayfa</a>
-             <a href="About.aspx">Hakkımızda</a>
-             <a href="SearchLoad.aspx">Yük Arıyorum</a>
-             <a href="Contact.aspx">İletişim</a>
+              <a href="MainPage.aspx">Anasayfa</a>
+              <a href="About.aspx">Hakkımızda</a>
+              <a href="SearchLoad.aspx">Yük Arıyorum</a>
+              <a href="Contact.aspx">İletişim</a>             
          </div>
          <div class="header-login">
              <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" />

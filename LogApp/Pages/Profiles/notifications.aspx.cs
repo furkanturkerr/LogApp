@@ -17,25 +17,30 @@ namespace LogApp.Pages.Profiles
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string tc = (string)Session["User"];
-                SqlCommand cmd = new SqlCommand("SELECT ad, soyad FROM uyeler where tc=@tc", conn);
-                cmd.Parameters.AddWithValue("@tc", tc);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT ad, soyad, tc FROM uyeler WHERE tc=@tc";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@tc", Session["User"].ToString());
 
-                if (reader.HasRows)
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
                         string ad = reader["ad"].ToString();
                         string soyad = reader["soyad"].ToString();
 
-                        kullaniciad.Text = ad + " " + soyad;
+                        kullaniciad.Text = $"{ad} {soyad}";
+                        Session["tc"] = reader["tc"].ToString();
+
+                        // Baş harfleri al ve avatar'a yaz
+                        string basHarf = $"{ad[0]}{soyad[0]}".ToUpper();
+                        avatar.InnerText = basHarf;
                     }
                 }
-                conn.Close();
             }
+
         }
+
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {

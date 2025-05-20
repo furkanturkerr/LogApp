@@ -9,6 +9,177 @@
     <link rel="stylesheet" href="../../Styles/color.css">
     <link rel="stylesheet" href="Css/Profile.css">
 </head>
+    <style>
+.cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header-ic {
+    width: 100%;
+    height: 100px;
+    background-image: url(../../images/loga.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.header-aa{
+    padding: 30px;
+}
+
+.offers-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.offer-card {
+    background: #fff;
+    border-left: 5px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+    .offer-card:hover {
+        transform: translateY(-3px);
+    }
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2d2d2d;
+}
+
+.offer-body p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.empty-info {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
+
+.cars {
+    position: absolute;
+    width: 40%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--theme2);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+/* Modern Table */
+.right-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.modern-table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+    .modern-table th, .modern-table td {
+        padding: 7px 10px;
+        text-align: center;
+        font-size: 14px;
+        vertical-align: middle;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .modern-table th {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .modern-table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .modern-table tbody tr:hover {
+        background-color: #e2f3ff;
+        transform: scale(1.02);
+        transition: 0.3s ease-in-out;
+    }
+
+    .modern-table td, .modern-table th {
+        border: none !important;
+    }
+
+    /* Buton Stil */
+    .modern-table .btn {
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .modern-table .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+    .modern-table .btn-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .modern-table .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+.panel-title{
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-size: 2rem;
+}
+
+/* Responsive (Mobil Uyumlu) */
+@media (max-width: 768px) {
+    .modern-table th, .modern-table td {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
+    </style>
 <body>
     <form id="form1" runat="server" class="container">
             <header class="header">
@@ -41,9 +212,9 @@
             </div>
             <div class="header-link">
                 <a href="../MainPage.aspx">Anasayfa</a>
-                <a href="About.aspx">Hakkımızda</a>
-                <a href="SearchLoad.aspx">Yük Arıyorum</a>
-                <a href="Contact.aspx">İletişim</a>
+                <a href="../About.aspx">Hakkımızda</a>
+              <a href="../SearchLoad.aspx">Yük Arıyorum</a>
+              <a href="../Contact.aspx">İletişim</a>  
             </div>
             <div class="header-login">
                 <asp:Button ID="btnLogin" runat="server" CssClass="login" Text="Giriş Yap" OnClick="btnLogin_Click" Visible="false"/>
@@ -64,7 +235,7 @@
     <!-- Sol Yan Menü -->
     <aside class="sidebar-a">
         <div class="profile-a">
-            <div class="avatar">FT</div>
+            <div id="avatar" runat="server" class="avatar"></div>
                 <asp:Label ID="kullaniciad" CssClass="kullanici" runat="server" Font-Bold="true"></asp:Label>
         </div>
         <nav class="menu-a">
@@ -86,31 +257,50 @@
     </aside>
 
     <!-- Sağ İçerik Alanı -->
-    <main class="content-a">
-        <div class="header-aa">
-            <div class="header-ic">
-                <a href="car.html" class="header-ic"></a>
-                <div class="container py-5">
-    <h2>Tekliflerim</h2>
-    <asp:Label ID="lblMesaj" runat="server" CssClass="alert alert-info" Visible="false"></asp:Label>
-    <asp:GridView ID="gvTekliflerim" runat="server" CssClass="table table-striped" AutoGenerateColumns="False">
-        <Columns>
-            <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" />
-            <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" />
-            <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Şehri" />
-            <asp:BoundField DataField="Tarih" HeaderText="Yük Tarihi" DataFormatString="{0:dd.MM.yyyy}" />
-            <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
-            <asp:BoundField DataField="TeklifTarihi" HeaderText="Teklif Tarihi" DataFormatString="{0:dd.MM.yyyy HH:mm}" />
-            <asp:BoundField DataField="Durum" HeaderText="Durum" />
-        </Columns>
+<main class="content-a">
+    <div class="header-aa">
+        <h2 class="panel-title">Tekliflerim</h2>
+    </div>
+        <div class="header-ic">
+            <a href="car.html" class="header-ic"></a>
+        
+
+            <div class="offers-section">
+                
+
+                <asp:Label ID="lblMesaj" runat="server" CssClass="alert alert-info" Visible="false"></asp:Label>
+
+                <div class="right-panel">
+                    <asp:GridView 
+                        ID="gvTekliflerim" 
+                        runat="server" 
+                        CssClass="modern-table table table-striped" 
+                        AutoGenerateColumns="False" 
+                        EmptyDataText="Henüz hiç teklif yapmamışsınız.">
+
+                        <Columns>
+                            <asp:BoundField DataField="YukAdi" HeaderText="Yük Adı" />
+                            <asp:BoundField DataField="AlinacakSehir" HeaderText="Alınacak Şehir" />
+                            <asp:BoundField DataField="TeslimEdilecekSehir" HeaderText="Teslim Şehri" />
+                            <asp:BoundField DataField="Tarih" HeaderText="Yük Tarihi" DataFormatString="{0:dd.MM.yyyy}" />
+                            <asp:BoundField DataField="TeklifTutari" HeaderText="Teklif Tutarı (₺)" DataFormatString="{0:N2}" />
+                            <asp:BoundField DataField="TeklifTarihi" HeaderText="Teklif Tarihi" DataFormatString="{0:dd.MM.yyyy HH:mm}" />
+                            <asp:BoundField DataField="arac_plaka" HeaderText="Araç Plaka" />
+                            <asp:BoundField DataField="tel" HeaderText="İletişim" />
+                            <asp:BoundField DataField="Durum" HeaderText="Durum" />
+                        </Columns>
+
                         <EmptyDataTemplate>
-                    <div class="alert alert-warning">Henüz hiç teklif yapmamışsınız.</div>
-                </EmptyDataTemplate>
-    </asp:GridView>
-</div>
+                            <div class="alert alert-warning empty-info">Henüz hiç teklif yapmamışsınız.</div>
+                        </EmptyDataTemplate>
+
+                    </asp:GridView>
+                </div>
             </div>
         </div>
-    </main>
+    
+</main>
+
 </div>
 </form>
 </body>

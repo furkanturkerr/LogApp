@@ -38,13 +38,20 @@ namespace LogApp.Pages.Profiles
                 {
                     if (reader.Read())
                     {
-                        kullaniciad.Text = $"{reader["ad"]} {reader["soyad"]}";
-                        // TC'yi de session'a kaydet (Listeleme için)
+                        string ad = reader["ad"].ToString();
+                        string soyad = reader["soyad"].ToString();
+
+                        kullaniciad.Text = $"{ad} {soyad}";
                         Session["tc"] = reader["tc"].ToString();
+
+                        // Baş harfleri al ve avatar'a yaz
+                        string basHarf = $"{ad[0]}{soyad[0]}".ToUpper();
+                        avatar.InnerText = basHarf;
                     }
                 }
             }
         }
+
 
         private void Listele()
         {
@@ -91,7 +98,7 @@ namespace LogApp.Pages.Profiles
 
         protected void rptAraclar_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "Sil")
+            if (e.CommandName.ToLower() == "sil")
             {
                 string plaka = e.CommandArgument.ToString();
 
